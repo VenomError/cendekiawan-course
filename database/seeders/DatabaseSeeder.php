@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Enum\UserRole;
 use App\Models\User;
+use App\Enum\UserRole;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        dd(UserRole::values());
+        $roles = UserRole::values();
+
+        foreach ($roles as $role)
+        {
+            Role::updateOrCreate([
+                'name' => $role
+            ]);
+        }
+
+        $this->command->info('Seeding Role Success');
     }
 }
