@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pendaftar;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Jadwal extends Model
 {
@@ -33,4 +34,9 @@ class Jadwal extends Model
         'start_datetime' => 'datetime',
         'end_datetime' => 'datetime',
     ];
+
+    public function pendaftar()
+    {
+        return $this->belongsTo(Pendaftar::class);
+    }
 }

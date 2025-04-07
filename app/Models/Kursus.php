@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pendaftar;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kursus extends Model
 {
@@ -23,4 +24,9 @@ class Kursus extends Model
         'price',
         'is_available',
     ];
+
+    public function pendaftar()
+    {
+        return $this->belongsTo(Pendaftar::class);
+    }
 }

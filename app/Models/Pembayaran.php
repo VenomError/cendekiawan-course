@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Pendaftar;
 use App\Enum\PembayaranStatus;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pembayaran extends Model
 {
@@ -34,4 +35,8 @@ class Pembayaran extends Model
         'payment_date' => 'datetime',
         'status' => PembayaranStatus::class
     ];
+    public function pendaftar()
+    {
+        return $this->belongsTo(Pendaftar::class);
+    }
 }

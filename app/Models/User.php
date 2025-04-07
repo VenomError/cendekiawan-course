@@ -5,9 +5,10 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Enum\UserRole;
+use App\Models\Pendaftar;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -48,4 +49,10 @@ class User extends Authenticatable
             'role' => UserRole::class
         ];
     }
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftar::class);
+    }
+
 }
