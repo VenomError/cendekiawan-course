@@ -13,6 +13,13 @@ return new class extends Migration {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pendaftar_id')->constrained('pendaftars')->cascadeOnDelete();
+            $table->foreignId('kursus_id')->constrained('kursuses')->cascadeOnDelete();
+
+            $table->timestamp('start_datetime');
+            $table->timestamp('end_datetime');
+            $table->string('location');
+            $table->integer('quota');
+
             $table->timestamps();
         });
     }
