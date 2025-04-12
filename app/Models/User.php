@@ -56,4 +56,19 @@ class User extends Authenticatable
         return $this->hasMany(Pendaftar::class);
     }
 
+    public function scopePimpinans($query)
+    {
+        return $query->role(UserRole::PIMPINAN);
+    }
+    public function scopeAdmins($query)
+    {
+        return $query->role(UserRole::ADMIN);
+    }
+
+
+    public function scopePesertas($query)
+    {
+        return $query->role(UserRole::PESERTA);
+    }
+
 }

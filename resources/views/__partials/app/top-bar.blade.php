@@ -212,8 +212,12 @@
                                class="rounded-circle" />
                        </span>
                        <span class="d-lg-flex flex-column gap-1 d-none">
-                           <h5 class="my-0">Dominic Keller</h5>
-                           <h6 class="my-0 fw-normal">Founder</h6>
+                           <h5 class="my-0">
+                            {{ auth()->user()->name }}
+                           </h5>
+                           <h6 class="my-0 fw-normal">
+                            {{ auth()->user()->getRoleNames()->first() }}
+                           </h6>
                        </span>
                    </a>
                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -224,7 +228,7 @@
 
 
                        <!-- item-->
-                       <a href="javascript:void(0);" class="dropdown-item">
+                       <a href="{{ route('logout') }}" class="dropdown-item">
                            <i class="mdi mdi-logout me-1"></i>
                            <span>Logout</span>
                        </a>

@@ -2,15 +2,18 @@
     'id' => 'table-datatable',
 ])
 @pushOnce('head')
-    <x-link href="dashboard/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <x-link href="dashboard/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
     <x-link href="dashboard/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
         type="text/css" />
-    <x-link href="dashboard/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet"
-        type="text/css" />
+    <x-link href="dashboard/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
     <x-link href="dashboard/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet"
         type="text/css" />
-    <x-link href="dashboard/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <x-link href="dashboard/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <x-link href="dashboard/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
+    <x-link href="dashboard/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet"
+        type="text/css" />
 @endPushOnce
 
 @pushOnce('script')
@@ -30,16 +33,19 @@
     <x-script src="dashboard/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></x-script>
 @endPushOnce
 
-<table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
-    <thead>
-        {{ $head }}
-    </thead>
+<div wire:ignore>
+
+    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap w-100">
+        <thead class="table-dark">
+            {{ $head }}
+        </thead>
 
 
-    <tbody>
-        {{ $body }}
-    </tbody>
-</table>
+        <tbody>
+            {{ $body }}
+        </tbody>
+    </table>
+</div>
 
 @push('script')
     <script>
