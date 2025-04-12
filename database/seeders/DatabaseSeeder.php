@@ -25,5 +25,8 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command->info('Seeding Role Success');
+        $this->command->newLine();
+
+        $this->call(AdminSeeder::class);
     }
 }
