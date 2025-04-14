@@ -1,8 +1,10 @@
 @props([
+    'type' => 'button',
     'color' => 'danger' ,
     'icon' => 'ri-delete-bin-2-line',
     'action'
 ])
+@if ($type == 'button')
 <button
     type="button"
     class="btn btn-sm btn-{{ $color }}"
@@ -23,3 +25,22 @@
         >
     </span>
 </button>
+@elseif ($type == 'a')
+<a
+    href="{{ $action }}"
+    class="btn btn-sm btn-{{ $color }}"
+>
+    <i
+        class="{{ $icon }}"
+        wire:loading.remove
+    >
+    </i>
+    <span
+        wire:loading
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+        >
+    </span>
+</a>
+@endif

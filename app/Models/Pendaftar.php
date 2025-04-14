@@ -44,7 +44,7 @@ class Pendaftar extends Model
 
     public function kursuses()
     {
-        return $this->hasMany(Kursus::class);
+        return $this->belongsToMany(Kursus::class, 'kursus_pendaftar');
     }
 
     public function pembayarans()

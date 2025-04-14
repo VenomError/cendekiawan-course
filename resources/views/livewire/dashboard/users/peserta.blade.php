@@ -1,4 +1,19 @@
 <div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card widget-flat">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-account-box-line widget-icon"></i>
+                    </div>
+                    <h5 class="text-muted fw-normal mt-0" title="Number of Customers">
+                        Total Peserta
+                    </h5>
+                    <h3 class="mt-3 mb-3">{{ $pesertas->count() }}</h3>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">

@@ -40,6 +40,12 @@ Route::name('dashboard.')
             Route::get('/admin', App\Livewire\Dashboard\Users\Admin::class)->name('admin');
             Route::get('/peserta', App\Livewire\Dashboard\Users\Peserta::class)->name('peserta');
         });
+        Route::prefix('kursuses')->name('kursus.')->group(function () {
+            Route::get('/create', App\Livewire\Dashboard\Kursus\CreateKursus::class)->name('create');
+            Route::get('/list', App\Livewire\Dashboard\Kursus\ListKursus::class)->name('list');
+            Route::get('/detail/{kursus_id}', App\Livewire\Dashboard\Kursus\DetailKursus::class)->name('detail');
+            Route::get('/edit/{kursus_id}', App\Livewire\Dashboard\Kursus\EditKursus::class)->name('edit');
+        });
 
     });
 // END Dashboard

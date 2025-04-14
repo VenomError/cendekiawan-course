@@ -17,7 +17,10 @@ class KursusFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'hour_duration' => $this->faker->numberBetween(1, 100),
+            'price' => $this->faker->numberBetween(10_000, 300_000),
         ];
     }
 }
