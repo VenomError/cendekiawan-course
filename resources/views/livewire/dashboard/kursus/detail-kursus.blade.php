@@ -105,7 +105,6 @@
                                 <x-slot:head>
                                     <tr>
                                         <th>Pendaftar</th>
-                                        <th>Kursus Name</th>
                                         <th>Start</th>
                                         <th>End</th>
                                         <th>Quota</th>
@@ -117,7 +116,6 @@
                                     @foreach ($jadwals as $jadwal)
                                         <tr>
                                             <td>{{ $jadwal->pendaftar?->user?->name }}</td>
-                                            <td>{{ $jadwal->kursus?->name }}</td>
                                             <td>{{ $jadwal->start_datetime }}</td>
                                             <td>{{ $jadwal->end_datetime }}</td>
                                             <td>{{ $jadwal->quota }}</td>
