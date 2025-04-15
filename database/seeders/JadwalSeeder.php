@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Jadwal;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class JadwalSeeder extends Seeder
 {
@@ -12,6 +13,13 @@ class JadwalSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $count = $this->command->ask('Jadwal Count' , 100);
+
+        $this->command->withProgressBar($count , function() use ($count){
+
+            Jadwal::factory($count)->create();
+        });
+
+        $this->command->info('Seeding Jadwal OK');
     }
 }

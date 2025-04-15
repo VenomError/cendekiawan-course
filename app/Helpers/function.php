@@ -1,5 +1,4 @@
 <?php
-
 function convertHoursToDaysAndHours($hours)
 {
     $days = floor($hours / 24);
@@ -7,11 +6,13 @@ function convertHoursToDaysAndHours($hours)
 
     $result = '';
 
-    if ($days > 0) {
+    if ($days > 0)
+    {
         $result .= $days . ' hari';
     }
 
-    if ($remainingHours > 0) {
+    if ($remainingHours > 0)
+    {
         $result .= ($days > 0 ? ' ' : '') . $remainingHours . ' jam';
     }
 

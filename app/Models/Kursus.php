@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Jadwal;
 use App\Models\Pendaftar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -13,7 +14,8 @@ class Kursus extends Model
     use HasFactory;
 
     protected $withCount = [
-        'pendaftar'
+        'pendaftars',
+        'jadwals'
     ];
 
     /**
@@ -28,9 +30,14 @@ class Kursus extends Model
         'price',
     ];
 
-    public function pendaftar()
+    public function pendaftars()
     {
         return $this->belongsToMany(Pendaftar::class, 'kursus_pendaftar');
+    }
+
+    public function jadwals()
+    {
+        return $this->hasMany(Jadwal::class);
     }
 
 }

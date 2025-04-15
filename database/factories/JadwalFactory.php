@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Kursus;
+use App\Models\Pendaftar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,12 @@ class JadwalFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'pendaftar_id' => Pendaftar::inRandomOrder()->value('id'),
+            'kursus_id' => Kursus::inRandomOrder()->value('id'),
+            'start_datetime' => $this->faker->dateTimeBetween('now', '+1 month'),
+            'end_datetime' => $this->faker->dateTimeBetween('+1 hour', '+2 month'),
+            'location' => $this->faker->city(),
+            'quota' => $this->faker->numberBetween(1, 30),
         ];
     }
 }

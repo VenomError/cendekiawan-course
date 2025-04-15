@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Kursus;
 use App\Models\Pendaftar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -39,4 +40,11 @@ class Jadwal extends Model
     {
         return $this->belongsTo(Pendaftar::class);
     }
+
+    public function kursus()
+    {
+        return $this->belongsTo(Kursus::class);
+    }
+
+
 }

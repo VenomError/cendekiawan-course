@@ -33,9 +33,9 @@
     <x-script src="dashboard/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></x-script>
 @endPushOnce
 
-<div wire:ignore>
+<div wire:ignore class="table-responsive">
 
-    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap w-100">
+    <table id="{{ $id }}" class="table table-striped table-bordered  nowrap w-100">
         <thead class="table-dark">
             {{ $head }}
         </thead>
@@ -52,7 +52,7 @@
         $(document).ready(function() {
             "use strict";
 
-            var a = $("#datatable-buttons").DataTable({
+            var a = $("#{{ $id }}").DataTable({
                 lengthChange: !1,
                 buttons: ["print"],
                 language: {
