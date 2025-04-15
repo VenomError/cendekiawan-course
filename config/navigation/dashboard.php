@@ -32,6 +32,11 @@ return [
             'route' => 'dashboard.kursus.list',
             'icon' => '<i class="ri-graduation-cap-line"></i>'
         ],
+        [
+            'title' => 'Create Kursus',
+            'route' => 'dashboard.kursus.create',
+            'icon' => '<i class=" ri-file-add-line"></i>'
+        ],
     ]
 
 ];

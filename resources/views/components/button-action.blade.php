@@ -11,6 +11,7 @@
     wire:click="{{ $action }}"
     wire:loading.attr='disabled'
     >
+
     <i
         class="{{ $icon }}"
         wire:loading.remove

@@ -4,7 +4,33 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="header-title mt-0 mb-3">Kursus Information</h4>
+                    <p class="text-muted font-13">
+                        {{ $kursus->description }}
+                    </p>
 
+                    <hr>
+
+                    <div class="text-start">
+
+                        <p class="text-muted">
+                            <strong>Name :</strong>
+                            <span class="ms-2">{{ $kursus->name }}</span>
+                        </p>
+                        <p class="text-muted">
+                            <strong>Price :</strong>
+                            <span class="ms-2">{{ Number::currency($kursus->price, 'IDR', 'ID') }}</span>
+                        </p>
+                        <p class="text-muted">
+                            <strong>Duration (Hour) :</strong>
+                            <span class="ms-2">{{ $kursus->hour_duration }} Jam</span>
+                        </p>
+                        <p class="text-muted">
+                            <strong>Duration:</strong>
+                            <span class="ms-2">{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
+                        </p>
+
+                    </div>
                 </div>
             </div>
         </div>
