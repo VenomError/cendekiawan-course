@@ -19,3 +19,11 @@ function convertHoursToDaysAndHours($hours)
     return $result ?: '0 jam';
 }
 
+
+if(!function_exists('reloadPage')){
+
+    function reloadPage(){
+        return redirect(request()->header('Referer'));
+    }
+
+}

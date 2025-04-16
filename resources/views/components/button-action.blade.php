@@ -25,6 +25,8 @@
         aria-hidden="true"
         >
     </span>
+
+    <span>{{ $slot }}</span>
 </button>
 @elseif ($type == 'a')
 <a
@@ -43,5 +45,7 @@
         aria-hidden="true"
         >
     </span>
+    <span>{{ $slot }}</span>
+
 </a>
 @endif

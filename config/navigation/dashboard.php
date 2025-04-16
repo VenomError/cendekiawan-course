@@ -40,9 +40,24 @@ return [
     ],
     'management pendaftar' => [
         [
+            'title' => 'List Pendaftar',
+            'route' => 'dashboard.pendaftar.list',
+            'icon' => '<i class="ri-list-check"></i>'
+        ],
+        [
             'title' => 'New Pendaftar',
-            'route' => 'dashboard.kursus.list',
-            'icon' => '<i class="ri-graduation-cap-line"></i>'
+            'route' => 'dashboard.pendaftar.new',
+            'icon' => '<i class=" ri-arrow-up-fill text-success "></i>'
+        ],
+        [
+            'title' => 'Cancel Pendaftar',
+            'route' => 'dashboard.pendaftar.cancel',
+            'icon' => '<i class=" ri-close-circle-line text-danger"></i>'
+        ],
+        [
+            'title' => 'Active Pendaftar',
+            'route' => 'dashboard.pendaftar.active',
+            'icon' => '<i class="ri-check-line text-info"></i>'
         ],
     ],
     'management jadwal' => [
