@@ -17,7 +17,7 @@ class PimpinanSeeder extends Seeder
     {
         $this->command->info("Seeding Pimpinan START");
         $fullName = $this->command->ask('Full Name');
-        $email = $this->command->ask('Email', 'admin@gmail.com');
+        $email = $this->command->ask('Email', 'pimpinan@gmail.com');
         $password = $this->command->ask('Password', 'password');
 
         $validate = Validator::make(

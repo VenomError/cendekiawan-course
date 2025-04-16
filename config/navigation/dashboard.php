@@ -37,6 +37,20 @@ return [
             'route' => 'dashboard.kursus.create',
             'icon' => '<i class=" ri-file-add-line"></i>'
         ],
-    ]
+    ],
+    'management pendaftar' => [
+        [
+            'title' => 'New Pendaftar',
+            'route' => 'dashboard.kursus.list',
+            'icon' => '<i class="ri-graduation-cap-line"></i>'
+        ],
+    ],
+    'management jadwal' => [
+        [
+            'title' => 'Jadwal',
+            'route' => 'dashboard.kursus.list',
+            'icon' => '<i class="ri-calendar-event-line"></i>'
+        ],
+    ],
 
 ];

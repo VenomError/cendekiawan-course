@@ -4,6 +4,7 @@ namespace App\Enum;
 
 enum PendaftarStatus: string
 {
+    case NEW = 'new';
     case ACTIVE = 'active';
     case CANCEL = 'cancel';
 
