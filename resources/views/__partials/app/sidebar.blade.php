@@ -48,12 +48,14 @@
                  <li class="side-nav-title">{{ Str::title($title) }}</li>
 
                  @foreach ($items as $nav)
-                     <li class="side-nav-item">
-                         <a href="{{ route($nav['route']) }}" class="side-nav-link">
-                             {!! $nav['icon'] !!}
-                             <span> {{ Str::title($nav['title']) }} </span>
-                         </a>
-                     </li>
+                     @hasanyrole($nav['roles'])
+                         <li class="side-nav-item">
+                             <a href="{{ route($nav['route']) }}" class="side-nav-link">
+                                 {!! $nav['icon'] !!}
+                                 <span> {{ Str::title($nav['title']) }} </span>
+                             </a>
+                         </li>
+                     @endhasanyrole
                  @endforeach
              @endforeach
          </ul>
