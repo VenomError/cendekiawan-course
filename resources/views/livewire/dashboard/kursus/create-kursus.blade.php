@@ -10,7 +10,14 @@
                 <div class="card-body">
                     <x-form action="create()">
 
+                        @if ($thumbnail && $thumbnail->temporaryUrl())
+                            <div class="text-center mb-3">
+                                <img src="{{ $thumbnail->temporaryUrl() }}" alt="image" class="img-fluid rounded img-thumbnail"
+                                    width="200" />
+                            </div>
+                        @endif
 
+                        <x-input label="Upload Thumbnail" model="thumbnail" type="file" />
                         <x-input label="Kursus Name" model="form.name" type="text" />
                         <x-input label="Price (Rp)" model="form.price" type="number" />
                         <x-input label="Duration (Hour)" model="form.hour_duration" type="number" />

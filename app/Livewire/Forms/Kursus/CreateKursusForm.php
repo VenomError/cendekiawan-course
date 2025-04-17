@@ -7,13 +7,16 @@ use Livewire\Form;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Livewire\WithFileUploads;
 
 class CreateKursusForm extends Form
 {
+    use WithFileUploads;
     public $name;
     public $price;
     public $hour_duration;
     public $description;
+    public $thumbnail;
 
     public function rules()
     {
@@ -51,6 +54,13 @@ class CreateKursusForm extends Form
             flash()->error('Failed to Create Kursus');
             return false;
         }
+    }
+
+    public function uploadThumbnail($thumbnail)
+    {
+
+        $this->thumbnail = $thumbnail->storePublicly(path:'kursus/thumbnail' , options:'public');
+
     }
 
 

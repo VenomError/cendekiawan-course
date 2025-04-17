@@ -42,7 +42,10 @@
                         <x-slot:body>
                             @foreach ($kursuses as $kursus)
                                 <tr>
-                                    <th>{{ $kursus->name }}</th>
+                                    <th>
+                                        <img src="{{ Storage::url($kursus->thumbnail) }}" alt="thumbnail" class="img-fluid avatar-sm me-2">
+                                        {{ $kursus->name }}
+                                    </th>
 
                                     <th>{{ $kursus->hour_duration }} </th>
                                     <th>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</th>

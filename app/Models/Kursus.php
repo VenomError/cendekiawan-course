@@ -28,6 +28,7 @@ class Kursus extends Model
         'description',
         'hour_duration',
         'price',
+        'thumbnail'
     ];
 
     public function pendaftars()
