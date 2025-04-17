@@ -15,13 +15,13 @@ return [
             'title' => 'Pimpinan',
             'route' => 'dashboard.user.pimpinan',
             'icon' => '<i class="ri-user-2-line"></i>',
-             'roles' => ['pimpinan']
+             'roles' => ['pimpinan' , 'admin']
         ],
         [
             'title' => 'Admin',
             'route' => 'dashboard.user.admin',
             'icon' => '<i class="ri-shield-user-line"></i>',
-            'roles' => ['pimpinan']
+            'roles' => ['pimpinan' , 'admin']
         ],
         [
             'title' => 'Peserta',
