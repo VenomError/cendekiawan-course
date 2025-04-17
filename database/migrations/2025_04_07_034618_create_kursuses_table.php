@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->text('description');
             $table->integer('hour_duration')->default(0);
             $table->decimal('price');
+            $table->string('thumbnail')->nullable();
 
             $table->timestamps();
         });
