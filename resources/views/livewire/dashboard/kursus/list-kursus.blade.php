@@ -42,20 +42,20 @@
                         <x-slot:body>
                             @foreach ($kursuses as $kursus)
                                 <tr>
-                                    <th>
-                                        <img src="{{ Storage::url($kursus->thumbnail) }}" alt="thumbnail" class="img-fluid avatar-sm me-2">
-                                        {{ $kursus->name }}
-                                    </th>
+                                    <td >
+                                        <img src="{{ Storage::url($kursus->thumbnail) }}" alt="thumbnail" class=" avatar-md me-2" >
+                                        <span>{{ $kursus->name }}</span>
+                                    </td>
 
-                                    <th>{{ $kursus->hour_duration }} </th>
-                                    <th>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</th>
+                                    <td>{{ $kursus->hour_duration }} </td>
+                                    <td>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</th>
 
-                                    <th>{{ Number::currency($kursus->price, 'IDR', 'ID', 2) }}</th>
+                                    <td>{{ Number::currency($kursus->price, 'IDR', 'ID', 2) }}</td>
 
-                                    <th>{{ $kursus->pendaftars_count }}</th>
-                                    <th>{{ $kursus->jadwals_count }}</th>
-                                    <th>{{ $kursus->created_at->format('d M Y, h:ia') }}</th>
-                                    <th class="text-center">
+                                    <td>{{ $kursus->pendaftars_count }}</td>
+                                    <td>{{ $kursus->jadwals_count }}</td>
+                                    <td>{{ $kursus->created_at->format('d M Y, h:ia') }}</td>
+                                    <td class="text-center">
                                         <x-button-action type="a"
                                             action="{{ route('dashboard.kursus.detail', ['kursus_id' => $kursus->id]) }}"
                                             color="info" icon="ri-eye-line" />
@@ -64,7 +64,7 @@
                                             color="warning" icon="ri-edit-2-line" />
                                         <x-button-action action="delete({{ $kursus->id }})" color="danger"
                                             icon="ri-delete-bin-2-line" />
-                                    </th>
+                                    </td>
                                 </tr>
                             @endforeach
                         </x-slot:body>

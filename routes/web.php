@@ -22,9 +22,12 @@ Route::middleware('auth')->get('/logout', function (Request $request) {
 })->name('logout');
 
 // START Landing Page
-Route::get('/', function () {
-    return 'Home Page';
-})->name('home');
+Route::get('/', App\Livewire\Landing\Index::class)->name('home');
+Route::prefix('kursus')->name('landing.kursus.')->group(function(){
+
+    Route::get('/',App\Livewire\Landing\Kursus\ListKursus::class)->name('list');
+
+});
 // END Landing Page
 
 // START Dashboard
