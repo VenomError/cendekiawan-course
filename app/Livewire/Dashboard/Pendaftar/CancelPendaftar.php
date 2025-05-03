@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Dashboard\Pendaftar;
 
 use Livewire\Component;

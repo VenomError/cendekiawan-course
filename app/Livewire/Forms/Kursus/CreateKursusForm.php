@@ -46,6 +46,7 @@ class CreateKursusForm extends Form
                 return $kursus;
             });
         } catch (ValidationException $th)
+        
         {
             flash()->error($th->getMessage());
             throw $th;
