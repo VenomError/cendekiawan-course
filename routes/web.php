@@ -42,7 +42,6 @@ Route::name('dashboard.')
     ->group(function () {
 
         Route::get('/', App\Livewire\Dashboard\Index::class)->name('index');
-
         Route::prefix('users')->name('user.')->group(function () {
             Route::get('/pimpinan', App\Livewire\Dashboard\Users\Pimpinan::class)->name('pimpinan');
             Route::get('/admin', App\Livewire\Dashboard\Users\Admin::class)->name('admin');

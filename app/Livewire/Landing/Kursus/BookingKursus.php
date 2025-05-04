@@ -9,8 +9,12 @@ class BookingKursus extends Component
 {
 
     public $kursus;
+    
     public function mount($slug){
-        $this->kursus = Kursus::where("slug", $slug)->first();
+        $this->kursus = Kursus::where("slug", $slug)->firstOr(function(){
+            
+        });
+        
     }
     public function render()
     {

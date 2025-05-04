@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Livewire\Dashboard\Users;
 
 use App\Models\User;
-use Livewire\Component;
-use Illuminate\Support\Arr;
-use Livewire\Attributes\On;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class Peserta extends Component
 {
@@ -20,7 +17,6 @@ class Peserta extends Component
         return view('livewire.dashboard.users.peserta');
     }
 
-
     public function delete($user_id)
     {
         sweetalert()
@@ -32,7 +28,7 @@ class Peserta extends Component
     #[On('sweetalert:confirmed')]
     public function deleteConfirm(array $payload)
     {
-        $user_id = $payload[ 'envelope' ][ 'options' ][ 'user_id' ];
+        $user_id = $payload['envelope']['options']['user_id'];
 
         try
         {
@@ -44,8 +40,7 @@ class Peserta extends Component
 
             return redirect()->route('dashboard.user.peserta');
 
-        } catch (\Throwable $th)
-        {
+        } catch (\Throwable $th) {
             flash()->error($th->getMessage());
         }
 
