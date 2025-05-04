@@ -19,23 +19,23 @@
         href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Water+Brush&amp;display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="landing/assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/bootstrap-select/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/eduact-icons/style.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/owl-carousel/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="landing/assets/vendors/owl-carousel/assets/owl.theme.default.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/bootstrap-select/bootstrap-select.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/jquery-ui/jquery-ui.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/animate/animate.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/fontawesome/css/all.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/eduact-icons/style.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/jarallax/jarallax.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/nouislider/nouislider.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/nouislider/nouislider.pips.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/odometer/odometer.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/tiny-slider/tiny-slider.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/owl-carousel/assets/owl.carousel.min.css" />
+    <x-link rel="stylesheet" href="landing/assets/vendors/owl-carousel/assets/owl.theme.default.min.css" />
 
     <!-- template styles -->
-    <link rel="stylesheet" href="landing/assets/css/eduact.css" />
+    <x-link rel="stylesheet" href="landing/assets/css/eduact.css" />
 </head>
 
 <body class="custom-cursor">
@@ -117,32 +117,30 @@
 
     @livewireScripts
 
-    <script src="landing/assets/vendors/jquery/jquery-3.5.1.min.js"></script>
-    <script src="landing/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="landing/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
-    <script src="landing/assets/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="landing/assets/vendors/jarallax/jarallax.min.js"></script>
-    <script src="landing/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="landing/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="landing/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="landing/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="landing/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="landing/assets/vendors/nouislider/nouislider.min.js"></script>
-    <script src="landing/assets/vendors/odometer/odometer.min.js"></script>
-    <script src="landing/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="landing/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="landing/assets/vendors/wnumb/wNumb.min.js"></script>
-    <script src="landing/assets/vendors/jquery-circleType/jquery.circleType.js"></script>
-    <script src="landing/assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
-    <script src="landing/assets/vendors/tilt/tilt.jquery.js"></script>
-    <script src="landing/assets/vendors/wow/wow.js"></script>
-    <script src="landing/assets/vendors/isotope/isotope.js"></script>
-    <script src="landing/assets/vendors/countdown/countdown.min.js"></script>
+    <x-script src="landing/assets/vendors/jquery/jquery-3.5.1.min.js"></x-script>
+    <x-script src="landing/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></x-script>
+    <x-script src="landing/assets/vendors/bootstrap-select/bootstrap-select.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-ui/jquery-ui.js"></x-script>
+    <x-script src="landing/assets/vendors/jarallax/jarallax.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-appear/jquery.appear.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-validate/jquery.validate.min.js"></x-script>
+    <x-script src="landing/assets/vendors/nouislider/nouislider.min.js"></x-script>
+    <x-script src="landing/assets/vendors/odometer/odometer.min.js"></x-script>
+    <x-script src="landing/assets/vendors/tiny-slider/tiny-slider.min.js"></x-script>
+    <x-script src="landing/assets/vendors/owl-carousel/owl.carousel.min.js"></x-script>
+    <x-script src="landing/assets/vendors/wnumb/wNumb.min.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-circleType/jquery.circleType.js"></x-script>
+    <x-script src="landing/assets/vendors/jquery-lettering/jquery.lettering.min.js"></x-script>
+    <x-script src="landing/assets/vendors/tilt/tilt.jquery.js"></x-script>
+    <x-script src="landing/assets/vendors/wow/wow.js"></x-script>
+    <x-script src="landing/assets/vendors/isotope/isotope.js"></x-script>
+    <x-script src="landing/assets/vendors/countdown/countdown.min.js"></x-script>
     <!-- template js -->
-    <script src="landing/assets/js/eduact.js"></script>
+    <x-script src="landing/assets/js/eduact.js"></x-script>
 </body>
 
-
-<!-- Mirrored from bracketweb.com/eduact-html/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 13:11:32 GMT -->
 
 </html>

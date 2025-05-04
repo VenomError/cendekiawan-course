@@ -1,21 +1,21 @@
 <?php
-
 namespace App\Models;
 
 use App\Models\Jadwal;
 use App\Models\Pendaftar;
-use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Kursus extends Model
 {
     /** @use HasFactory<\Database\Factories\KursusFactory> */
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $withCount = [
         'pendaftars',
-        'jadwals'
+        'jadwals',
     ];
 
     /**
@@ -25,11 +25,21 @@ class Kursus extends Model
      */
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'hour_duration',
         'price',
-        'thumbnail'
+        'thumbnail',
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ],
+        ];
+    }
 
     public function pendaftars()
     {
