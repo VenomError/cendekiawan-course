@@ -54,7 +54,7 @@
                             </li>
                         </ul>
                         <a
-                            href="contact.html"
+                            href="{{ route('landing.kursus.booking' , ['slug' => $kursus->slug]) }}"
                             class="eduact-btn eduact-btn-second"
                         >
                             <span class="eduact-btn__curve">
