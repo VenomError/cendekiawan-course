@@ -30,6 +30,7 @@ Route::prefix('kursus')->name('landing.kursus.')->group(function(){
 
     Route::get('/',App\Livewire\Landing\Kursus\ListKursus::class)->name('list');
     Route::get('/{slug}',App\Livewire\Landing\Kursus\KursusDetail::class)->name('detail');
+    Route::get('/{slug}/booking',App\Livewire\Landing\Kursus\BookingKursus::class)->name('detail');
 
 });
 // END Landing Page

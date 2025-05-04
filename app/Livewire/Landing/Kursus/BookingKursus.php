@@ -7,7 +7,8 @@ use Livewire\Component;
 class BookingKursus extends Component
 {
 
-    public function mount(){
+    public $kursus;
+    public function mount($slug){
         
     }
     public function render()
