@@ -3,11 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/php-info', function(){
+Route::get('/php-info', function () {
     return phpinfo();
 })->name('login');
 Route::middleware('guest')->group(function () {
-    
+
     Route::get('/login', App\Livewire\Auth\Login::class)->name('login');
     Route::get('/register', App\Livewire\Auth\Register::class)->name('register');
 
@@ -26,11 +26,13 @@ Route::middleware('auth')->get('/logout', function (Request $request) {
 
 // START Landing Page
 Route::get('/', App\Livewire\Landing\Index::class)->name('home');
-Route::prefix('kursus')->name('landing.kursus.')->group(function(){
+Route::prefix('kursus')->name('landing.kursus.')->group(function () {
 
-    Route::get('/',App\Livewire\Landing\Kursus\ListKursus::class)->name('list');
-    Route::get('/{slug}',App\Livewire\Landing\Kursus\KursusDetail::class)->name('detail');
-    Route::get('/{slug}/booking',App\Livewire\Landing\Kursus\BookingKursus::class)->name('booking');
+    Route::get('/', App\Livewire\Landing\Kursus\ListKursus::class)->name('list');
+    Route::get('/{slug}', App\Livewire\Landing\Kursus\KursusDetail::class)->name('detail');
+    Route::get('/{slug}/booking', App\Livewire\Landing\Kursus\BookingKursus::class)
+        ->middleware(['auth', 'role:peserta'])
+        ->name('booking');
 });
 // END Landing Page
 

@@ -2,7 +2,7 @@
     'title' => ''
  ])
 <section class="page-header page-header--bg-two" data-jarallax="" data-speed="0.3" data-imgposition="50% -100%"
-    style="z-index: 0;">
+    style="z-index: 0;" wire:ignore>
     <!-- /.page-header-bg -->
     <div class="page-header__overlay"></div><!-- /.page-header-overlay -->
     <div class="container text-center">

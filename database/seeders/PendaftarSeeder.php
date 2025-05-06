@@ -13,6 +13,7 @@ class PendaftarSeeder extends Seeder
      */
     public function run(): void
     {
+        
         $count = $this->command->ask('Seeder Pendaftar Count' , 10);
 
         $this->command->withProgressBar($count,function() use ($count){

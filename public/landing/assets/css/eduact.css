@@ -16238,6 +16238,10 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .checkout-page__input-box input[type="text"],
 .checkout-page__input-box input[type="email"],
+.checkout-page__input-box input[type="number"],
+.checkout-page__input-box input[type="date"],
+.checkout-page__input-box input[type="datetime"],
+.checkout-page__input-box input[type="datetime-local"],
 .checkout-page__input-box input[type="tel"] {
   height: 60px;
   width: 100%;
