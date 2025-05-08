@@ -63,5 +63,9 @@ Route::name('dashboard.')
             Route::get('/active', App\Livewire\Dashboard\Pendaftar\ActivePendaftar::class)->name('active');
         });
 
+        Route::prefix('jadwal')->name('jadwal.')->group(function () {
+            Route::get('/', App\Livewire\Jadwal\ListJadwal::class)->name('list');
+        });
+
     });
 // END Dashboard

@@ -46,8 +46,9 @@ class CreateJadwalForm extends Form
             do {
 
                 $end = (clone $start)->addHours($kursus->hour_duration);
+                
                 $conflictingJadwal = Jadwal::where('kursus_id', $kursusId)
-                ->where(function ($query) use ($start, $end) {
+            ->where(function ($query) use ($start, $end) {
                         $query->whereBetween('start_datetime' , [$start,$end]);
                     })->first();
                     

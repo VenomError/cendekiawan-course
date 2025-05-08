@@ -49,7 +49,7 @@
                                             Cancel
                                         </x-button-action>
                                     @endif
-                                    @if ($status == \App\Enum\PendaftarStatus::CANCEL)
+                                    @if ($status == \App\Enum\PendaftarStatus::CANCEL || $status == \App\Enum\PendaftarStatus::NEW)
                                         <x-button-action action="active({{ $pendaftar->id }})" color="info"
                                             icon="ri-check-line">
                                             Active

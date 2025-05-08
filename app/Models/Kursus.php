@@ -26,7 +26,7 @@ class Kursus extends Model
     protected $fillable = [
         'name',
         'slug',
-        'description',
+    'description',
         'hour_duration',
         'price',
         'thumbnail',
