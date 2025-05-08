@@ -34,6 +34,12 @@ Route::prefix('kursus')->name('landing.kursus.')->group(function () {
         ->middleware(['auth', 'role:peserta'])
         ->name('booking');
 });
+
+Route::prefix('jadwal')->name('landing.jadwal')->group(function(){
+
+    Route::get('/' , App\Livewire\Landing\Jadwal\Calendar::class)->name('jadwal');
+
+});
 // END Landing Page
 
 // START Dashboard

@@ -23,7 +23,7 @@
             rel="stylesheet"
         >
 
-        @stack('style')
+        @stack('head')
 
         <x-link rel="stylesheet" href="landing/assets/vendors/bootstrap/css/bootstrap.min.css" />
         <x-link rel="stylesheet"
@@ -152,7 +152,7 @@
 
         @livewireScripts
         
-        @stack('scripts')
+        @stack('script')
 
         <x-script src="landing/assets/vendors/jquery/jquery-3.5.1.min.js"></x-script>
         <x-script src="landing/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></x-script>
