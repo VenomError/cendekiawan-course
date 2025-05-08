@@ -32,20 +32,6 @@
                             </td>
                             <td>
                                 <x-button-action
-                                    action="cancel({{ $jadwal->id }})"
-                                    color="danger"
-                                    icon="ri-close-line"
-                                >
-                                    Cancel
-                                </x-button-action>
-                                <x-button-action
-                                    action="active({{ $jadwal->id }})"
-                                    color="info"
-                                    icon="ri-check-line"
-                                >
-                                    Active
-                                </x-button-action>
-                                <x-button-action
                                     action="edit()"
                                     color="warning"
                                     icon="ri-edit-2-line"

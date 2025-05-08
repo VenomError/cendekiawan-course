@@ -74,6 +74,7 @@ class CreateJadwalForm extends Form
 
             $jadwal->save();
 
+            $this->reset();
             return $jadwal;
 
         } catch (\Throwable $th) {
