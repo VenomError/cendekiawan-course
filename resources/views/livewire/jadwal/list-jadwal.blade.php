@@ -1,8 +1,7 @@
 <div class="">
-
     <div class="card">
         <div class="card-body">
-            <x-table>
+            <x-table :order="[[2, 'desc']]">
                 <x-slot:head>
                     <tr>
                         <th>Pendaftar</th>
@@ -11,6 +10,7 @@
                         <th>End</th>
                         <th>Location</th>
                         <th>Quota</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </x-slot:head>
@@ -24,26 +24,37 @@
                             <td>{{ $jadwal->location }}</td>
                             <td>{{ $jadwal->quota }}</td>
                             <td>
+                                <span
+                                    class="badge bg-{{ pendaftarStatusColor($jadwal->pendaftar->status) }}"
+                                >
+                                    {{ $jadwal->pendaftar->status }}
+                                </span>
+                            </td>
+                            <td>
                                 <x-button-action
-                                    action="cancel({{ $jadwal }})"
+                                    action="cancel({{ $jadwal->id }})"
                                     color="danger"
                                     icon="ri-close-line"
                                 >
                                     Cancel
+                                </x-button-action>
+                                <x-button-action
+                                    action="active({{ $jadwal->id }})"
+                                    color="info"
+                                    icon="ri-check-line"
+                                >
+                                    Active
                                 </x-button-action>
                                 <x-button-action
                                     action="edit()"
                                     color="warning"
                                     icon="ri-edit-2-line"
                                 />
-
                                 <x-button-action
-                                    action="cancel({{ $jadwal }})"
+                                    action="delete()"
                                     color="danger"
-                                    icon="ri-close-line"
-                                >
-                                    Cancel
-                                </x-button-action>
+                                    icon=" ri-delete-bin-line "
+                                />
                             </td>
                         </tr>
                     @endforeach
@@ -51,5 +62,4 @@
             </x-table>
         </div>
     </div>
-
 </div>

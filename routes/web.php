@@ -65,6 +65,8 @@ Route::name('dashboard.')
 
         Route::prefix('jadwal')->name('jadwal.')->group(function () {
             Route::get('/', App\Livewire\Jadwal\ListJadwal::class)->name('list');
+            Route::get('/calendar', App\Livewire\Jadwal\CalendarJadwal::class)->name('calendar');
+            Route::get('/{id}', App\Livewire\Jadwal\DetailJadwal::class)->name('detail');
         });
 
     });

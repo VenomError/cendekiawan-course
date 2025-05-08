@@ -76,6 +76,12 @@ return [
             'icon'  => '<i class="ri-calendar-event-line"></i>',
             'roles' => ['admin'],
         ],
+        [
+            'title' => 'Calendar',
+            'route' => 'dashboard.jadwal.calendar',
+            'icon'  => '<i class="ri-calendar-line"></i>',
+            'roles' => ['admin'],
+        ],
     ],
 
 ];

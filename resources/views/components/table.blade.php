@@ -1,7 +1,8 @@
 @props([
     'id' => 'table-datatable',
+    'order' => [[0,'asc']]
 ])
-@pushOnce('head')
+@push('head')
     <x-link href="dashboard/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet"
         type="text/css" />
     <x-link href="dashboard/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
@@ -14,9 +15,9 @@
         type="text/css" />
     <x-link href="dashboard/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet"
         type="text/css" />
-@endPushOnce
+@endpush
 
-@pushOnce('script')
+@push('script')
     <!-- Datatables js -->
     <x-script src="dashboard/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></x-script>
     <x-script src="dashboard/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></x-script>
@@ -31,7 +32,7 @@
     <x-script src="dashboard/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></x-script>
     <x-script src="dashboard/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></x-script>
     <x-script src="dashboard/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></x-script>
-@endPushOnce
+@endpush
 
 <div wire:ignore class="table-responsive">
 
@@ -55,6 +56,7 @@
             var a = $("#{{ $id }}").DataTable({
                 lengthChange: !1,
                 buttons: ["print"],
+                order : @json($order),
                 language: {
                     paginate: {
                         previous: "<i class='mdi mdi-chevron-left'>",
