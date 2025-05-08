@@ -1,5 +1,5 @@
 <div class="">
-    <x-section.header-overlay title="Booking Kursus" />
+    <x-section.header-overlay title="Kalender Jadwal" />
     <section class="course-details">
         <div class="container">
             <div class="row">

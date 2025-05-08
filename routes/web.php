@@ -35,9 +35,19 @@ Route::prefix('kursus')->name('landing.kursus.')->group(function () {
         ->name('booking');
 });
 
-Route::prefix('jadwal')->name('landing.jadwal')->group(function(){
+Route::prefix('jadwal')->name('landing.jadwal.')->group(function () {
 
-    Route::get('/' , App\Livewire\Landing\Jadwal\Calendar::class)->name('jadwal');
+    Route::get('/', App\Livewire\Landing\Jadwal\Calendar::class)
+        ->middleware(['auth', 'role:peserta'])
+        ->name('jadwal');
+
+});
+
+Route::prefix('pendaftar')->name('landing.pendaftar.')->group(function () {
+
+    Route::get('/riwayat', App\Livewire\Landing\Pendaftar\Riwayat::class)
+        ->middleware(['auth', 'role:peserta'])
+        ->name('riwayat');
 
 });
 // END Landing Page
