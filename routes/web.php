@@ -61,7 +61,10 @@ Route::name('dashboard.')
         Route::get('/', App\Livewire\Dashboard\Index::class)->name('index');
         Route::prefix('users')->name('user.')->group(function () {
             Route::get('/pimpinan', App\Livewire\Dashboard\Users\Pimpinan::class)->name('pimpinan');
+            Route::get('/add-pimpinan', App\Livewire\Dashboard\Users\AddPimpinan::class)->name('add-pimpinan');
+            Route::get('/update-pimpinan/{id}', App\Livewire\Dashboard\Users\EditPimpinan::class)->name('edit-pimpinan');
             Route::get('/admin', App\Livewire\Dashboard\Users\Admin::class)->name('admin');
+            Route::get('/add-admin', App\Livewire\Dashboard\Users\AddAdmin::class)->name('add-admin');
             Route::get('/peserta', App\Livewire\Dashboard\Users\Peserta::class)->name('peserta');
         });
 

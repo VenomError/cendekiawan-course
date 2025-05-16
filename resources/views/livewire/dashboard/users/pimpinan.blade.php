@@ -23,6 +23,9 @@
                     <div class=" card-title ">
                         <h3>List Pimpinan</h3>
                     </div>
+                    <div class="">
+                        <a href="{{ route('dashboard.user.add-pimpinan') }}" class="btn btn-primary" >Add New Pimpinan</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <x-table>
@@ -47,7 +50,7 @@
                                     <th>{{ $pimpinan->created_at->format('d M Y, h:ia') }}</th>
                                     <th class="text-center">
                                         @if ($pimpinan->id == auth()->id())
-                                        <x-button-action action="edit()" color="warning" icon="ri-edit-2-line" />
+                                        <x-button-action type="a" action="{{ route('dashboard.user.edit-pimpinan' , ['id' => $pimpinan->id]) }}" color="warning" icon="ri-edit-2-line" />
                                         @endif
                                         @if ($pimpinan->id != auth()->id())
                                         <x-button-action action="delete({{ $pimpinan->id }})" color="danger" icon="ri-delete-bin-2-line" />

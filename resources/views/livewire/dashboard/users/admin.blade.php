@@ -23,6 +23,9 @@
                     <div class=" card-title ">
                         <h3>List Admin</h3>
                     </div>
+                    <div class="">
+                        <a href="{{ route('dashboard.user.add-admin') }}" class="btn btn-primary">Add Admin</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <x-table>

@@ -80,7 +80,7 @@ return [
             'title' => 'Calendar',
             'route' => 'dashboard.jadwal.calendar',
             'icon'  => '<i class="ri-calendar-line"></i>',
-            'roles' => ['admin'],
+            'roles' => ['admin','pimpinan'],
         ],
     ],
 
