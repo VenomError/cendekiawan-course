@@ -10,7 +10,6 @@ class NewPendaftar extends Component
     public function render()
     {
         $kursus = Kursus::find(2);
-        $kursus->name;
         return view('livewire.dashboard.pendaftar.new-pendaftar');
     }
   
