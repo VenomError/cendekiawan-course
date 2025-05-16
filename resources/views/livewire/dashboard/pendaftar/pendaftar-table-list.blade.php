@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <h4 class=" text-capitalize ">List {{ $status ?? 'All' }} Pendaftar</h4>
+                    <h4 class="text-capitalize">List {{ $status ?? 'All' }} Pendaftar</h4>
                 </div>
             </div>
             <div class="card-body">
@@ -21,7 +21,9 @@
                             <th>Jabatan</th>
                             <th>Status</th>
                             <th>Created At</th>
-                            <th></th>
+                            @hasrole(['admin'])
+                                <th></th>
+                            @endhasrole
                         </tr>
                     </x-slot:head>
 
@@ -29,36 +31,53 @@
 
                         @foreach ($pendaftars as $pendaftar)
                             <tr>
+                                @php
+                                    $pendaftar->load('kursuses');
+                                @endphp
                                 <td>{{ $pendaftar?->user?->name }}</td>
+                                <td>{{ $pendaftar->kursuses->first()->name }}</td>
                                 <td>{{ $pendaftar->phone }}</td>
                                 <td>{{ $pendaftar->institute }}</td>
                                 <td>{{ $pendaftar->pekerjaan }}</td>
                                 <td>{{ $pendaftar->jabatan }}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ pendaftarStatusColor($pendaftar->status) }}">
+                                    <span
+                                        class="badge bg-{{ pendaftarStatusColor($pendaftar->status) }}"
+                                    >
                                         {{ $pendaftar->status }}
                                     </span>
                                 </td>
                                 <td>
                                     {{ $pendaftar->created_at }}
                                 </td>
-                                <td class="text-center">
+                                @hasrole(['admin'])
+                                    <td class="text-center">
 
-                                    @if ($status == \App\Enum\PendaftarStatus::NEW || $status == \App\Enum\PendaftarStatus::ACTIVE)
-                                        <x-button-action action="cancel({{ $pendaftar->id }})" color="danger"
-                                            icon="ri-close-line">
-                                            Cancel
-                                        </x-button-action>
-                                    @endif
-                                    @if ($status == \App\Enum\PendaftarStatus::CANCEL || $status == \App\Enum\PendaftarStatus::NEW)
-                                        <x-button-action action="active({{ $pendaftar->id }})" color="info"
-                                            icon="ri-check-line">
-                                            Active
-                                        </x-button-action>
-                                    @endif
-                                    <x-button-action action="delete({{ $pendaftar->id }})" color="danger"
-                                        icon="ri-delete-bin-2-line" />
-                                </td>
+                                        @if ($status == \App\Enum\PendaftarStatus::NEW || $status == \App\Enum\PendaftarStatus::ACTIVE)
+                                            <x-button-action
+                                                action="cancel({{ $pendaftar->id }})"
+                                                color="danger"
+                                                icon="ri-close-line"
+                                            >
+                                                Cancel
+                                            </x-button-action>
+                                        @endif
+                                        @if ($status == \App\Enum\PendaftarStatus::CANCEL || $status == \App\Enum\PendaftarStatus::NEW)
+                                            <x-button-action
+                                                action="active({{ $pendaftar->id }})"
+                                                color="info"
+                                                icon="ri-check-line"
+                                            >
+                                                Active
+                                            </x-button-action>
+                                        @endif
+                                        <x-button-action
+                                            action="delete({{ $pendaftar->id }})"
+                                            color="danger"
+                                            icon="ri-delete-bin-2-line"
+                                        />
+                                    </td>
+                                @endhasrole
                             </tr>
                         @endforeach
 

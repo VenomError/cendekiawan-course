@@ -1,7 +1,12 @@
 <div class="">
     <div class="card">
+        <div class="card-header">
+                <div class="card-title">
+                    <h4 class="text-capitalize">List Jadwal</h4>
+                </div>
+            </div>
         <div class="card-body">
-            <x-table :order="[[2, 'desc']]">
+            <x-table :order="[[2, 'desc']]" id="datatable-list-jadwal" >
                 <x-slot:head>
                     <tr>
                         <th>Pendaftar</th>
