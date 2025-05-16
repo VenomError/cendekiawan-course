@@ -16,6 +16,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                        <label for="" class="form-label">
+                                            Phone Number
+                                        </label>
                                         <input
                                             type="tel"
                                             @error('pendaftarForm.phone')
@@ -34,6 +37,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Institute
+                                        </label>
                                         <input
                                             type="text"
                                             @error('pendaftarForm.institute')
@@ -52,6 +58,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Pekerjaan
+                                        </label>
                                         <input
                                             type="text"
                                             @error('pendaftarForm.pekerjaan')
@@ -70,6 +79,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Jabatan
+                                        </label>
                                         <input
                                             type="text"
                                             @error('pendaftarForm.jabatan')
@@ -91,6 +103,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Booking Date
+                                        </label>
                                         <input
                                             type="datetime-local"
                                             @error('jadwalForm.start_datetime')
@@ -109,6 +124,9 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Location
+                                        </label>
                                         <input
                                             type="text"
                                             @error('jadwalForm.location')
@@ -127,12 +145,15 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
+                                         <label for="" class="form-label">
+                                            Total Quota
+                                        </label>
                                         <input
                                             type="number"
                                             @error('jadwalForm.quota')
                                             class=" border border-danger "
                                             @enderror
-                                            placeholder="Input Booking Date"
+                                            placeholder="Input Total Quota"
                                             wire:model='jadwalForm.quota'
                                         >
                                     </div>

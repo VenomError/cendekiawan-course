@@ -23,6 +23,9 @@
                     <div class=" card-title ">
                         <h3>List Kurus</h3>
                     </div>
+                    <div class="">
+                        <a href="{{ route('dashboard.kursus.create') }}" class="btn btn-primary">Add Kursus</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <x-table>

@@ -14,6 +14,7 @@
                     <x-slot:head>
                         <tr>
                             <th>User</th>
+                            <th>Kursus</th>
                             <th>Phone</th>
                             <th>Institute</th>
                             <th>Pekerjaan</th>

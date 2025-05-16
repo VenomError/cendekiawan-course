@@ -39,7 +39,7 @@ class BookingKursus extends Component
             $jadwal    = $this->jadwalForm->create($this->kursus, $pendaftar);
             DB::commit();
             sweetalert("Booking Success !");
-
+            $this->reset();
         } catch (\Throwable $th) {
             dd($th->getMessage());
             //throw $th;
