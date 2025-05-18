@@ -44,7 +44,7 @@ class CreatePembayaranForm extends Form
 
             $pembayaran->save();
 
-            sweetalert('Uploaded Success');
+            // sweetalert('Uploaded Success');
             $this->reset('receipt');
             return $pembayaran;
         } catch (\Throwable $th) {

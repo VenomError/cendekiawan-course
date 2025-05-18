@@ -5,6 +5,7 @@ use App\Enum\PembayaranStatus;
 use App\Livewire\Forms\Pembayaran\CreatePembayaranForm;
 use App\Models\Kursus;
 use App\Models\Pendaftar;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -34,11 +35,16 @@ class Pembayaran extends Component
         $pembayaran = $this->form->create($this->pendaftar, $this->kursus, PembayaranStatus::PENDING);
 
         if ($pembayaran) {
-
+            $receipt = asset(Storage::url($pembayaran->receipt));
             $message = "
-            Saya Telah Melakukan Pembayaran
-            Kursus Name: {$this->kursus->name}
-            Nominal : {$pembayaran->amount}";
+Saya Telah Melakukan Pembayaran
+Kursus Name: {$this->kursus->name}
+Nominal : {$pembayaran->amount}
+Receipt : 
+{$receipt}
+"
+
+            ;
 
             return redirect()->route('chat-wa', [
                 'message' => $message,
