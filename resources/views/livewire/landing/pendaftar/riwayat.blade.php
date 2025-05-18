@@ -18,10 +18,9 @@
                             >
                             
                                 <div class="blog-two__item blog-two__item--list">
-
                                     <div class="blog-two__content">
                                         <div class="blog-two__top-meta">
-                                            <div class="blog-two__cats">
+                                            <div class="blog-two__cats bg-{{ pendaftarStatusColor($pendaftar->status) }} rounded ">
                                                 <a class="text-white">{{ $pendaftar->status }}</a>
                                             </div>
                                             <div class="blog-two__date">
