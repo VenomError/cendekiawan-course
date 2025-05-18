@@ -33,6 +33,10 @@ Route::prefix('kursus')->name('landing.kursus.')->group(function () {
     Route::get('/{slug}/booking', App\Livewire\Landing\Kursus\BookingKursus::class)
         ->middleware(['auth', 'role:peserta'])
         ->name('booking');
+    Route::get('/{slug}/pembayaran/{pendaftar_id}', App\Livewire\Landing\Kursus\Pembayaran::class)
+        ->middleware(['auth', 'role:peserta'])
+        ->name('pembayaran');
+
 });
 
 Route::prefix('jadwal')->name('landing.jadwal.')->group(function () {
@@ -90,3 +94,11 @@ Route::name('dashboard.')
 
     });
 // END Dashboard
+
+
+Route::get('/chat-wa', function (Request $request) {
+    $message = urlencode($request->message); // encoding URL aman
+
+    return redirect()->to("https://wa.me/628123456789?text={$message}");
+})->name('chat-wa');
+

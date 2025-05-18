@@ -49,7 +49,7 @@ class Pendaftar extends Model
 
     public function pembayarans()
     {
-        return $this->hasMany(Pembayaran::class);
+        return $this->hasOne(Pembayaran::class);
     }
 
     public function jadwal()

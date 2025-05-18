@@ -16,9 +16,11 @@ class BookingKursus extends Component
     public CreatePendaftarForm $pendaftarForm;
     public $kursus;
     public $pendaftar;
+    public $slug;
 
     public function mount($slug)
     {
+        $this->slug   = $slug;
         $this->kursus = Kursus::where("slug", $slug)->firstOrFail();
         $auth         = Auth::user();
 
@@ -39,10 +41,15 @@ class BookingKursus extends Component
             $jadwal    = $this->jadwalForm->create($this->kursus, $pendaftar);
             DB::commit();
             sweetalert("Booking Success !");
-            $this->reset();
+
+            return redirect()->route('landing.kursus.pembayaran', [
+                'slug'         => $this->slug,
+                'pendaftar_id' => $pendaftar->id,
+            ]);
+
         } catch (\Throwable $th) {
-            dd($th->getMessage());
-            //throw $th;
+            sweetalert()->error($th->getMessage());
+            return;
         }
     }
 }

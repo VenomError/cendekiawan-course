@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Kursus;
 use App\Models\Pendaftar;
 use App\Enum\PembayaranStatus;
 use Illuminate\Database\Eloquent\Model;
@@ -38,5 +39,10 @@ class Pembayaran extends Model
     public function pendaftar()
     {
         return $this->belongsTo(Pendaftar::class);
+    }
+
+    public function kursus()
+    {
+        return $this->belongsTo(Kursus::class);
     }
 }

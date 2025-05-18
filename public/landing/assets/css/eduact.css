@@ -16237,6 +16237,7 @@ body.megamenu-popup-active .mobile-nav__content {
 }
 
 .checkout-page__input-box input[type="text"],
+.checkout-page__input-box input[type="file"],
 .checkout-page__input-box input[type="email"],
 .checkout-page__input-box input[type="number"],
 .checkout-page__input-box input[type="date"],
