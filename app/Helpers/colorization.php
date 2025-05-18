@@ -1,5 +1,6 @@
 <?php
 
+use App\Enum\PembayaranStatus;
 use App\Enum\PendaftarStatus;
 
 
@@ -15,6 +16,23 @@ function pendaftarStatusColor(PendaftarStatus $status){
 
         default:
            return 'warning';
+    }
+
+}
+function pembayaranStatusColor(?PembayaranStatus $status){
+
+    switch ($status) {
+        case PembayaranStatus::PENDING:
+            return 'warning';
+        case PembayaranStatus::SUCCESS:
+            return 'success';
+        case PembayaranStatus::FAILED:
+            return 'danger';
+        case PembayaranStatus::CANCEL:
+            return 'danger';
+
+        default:
+           return 'info';
     }
 
 }

@@ -47,7 +47,7 @@ class Pendaftar extends Model
         return $this->belongsToMany(Kursus::class, 'kursus_pendaftar');
     }
 
-    public function pembayarans()
+    public function pembayaran()
     {
         return $this->hasOne(Pembayaran::class);
     }

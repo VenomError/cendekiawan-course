@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Models;
 
 use App\Models\Kursus;
 use App\Models\Pendaftar;
 use App\Enum\PembayaranStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pembayaran extends Model
@@ -34,7 +35,7 @@ class Pembayaran extends Model
      */
     protected $casts = [
         'payment_date' => 'datetime',
-        'status' => PembayaranStatus::class
+        'status'       => PembayaranStatus::class,
     ];
     public function pendaftar()
     {
@@ -44,5 +45,17 @@ class Pembayaran extends Model
     public function kursus()
     {
         return $this->belongsTo(Kursus::class);
+    }
+
+    /**
+     * Interact with the receiptUrl attribute.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function receiptUrl(): Attribute
+    {
+        return Attribute::get(function ($value) {
+            return asset(Storage::url($this->receipt));
+        });
     }
 }

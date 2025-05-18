@@ -20,6 +20,7 @@
                             <th>Pekerjaan</th>
                             <th>Jabatan</th>
                             <th>Status</th>
+                            <th>Payment Status</th>
                             <th>Created At</th>
                             @hasrole(['admin'])
                                 <th></th>
@@ -47,12 +48,26 @@
                                         {{ $pendaftar->status }}
                                     </span>
                                 </td>
+
+                                <td class="text-center">
+                                    <x-button-action
+                                        :action="$pendaftar->pembayaran?->receiptUrl"
+                                        color="primary"
+                                        icon="ri-file-line"
+                                        type="a"
+                                        title="dasda"
+                                    >Receipt</x-button-action>
+                                    <span
+                                        class="btn  btn-sm btn-{{ pembayaranStatusColor($pendaftar?->pembayaran?->status) }}"
+                                    >
+                                        {{ $pendaftar?->pembayaran?->status }}
+                                    </span>
+                                </td>
                                 <td>
                                     {{ $pendaftar->created_at }}
                                 </td>
                                 @hasrole(['admin'])
                                     <td class="text-center">
-
                                         @if ($status == \App\Enum\PendaftarStatus::NEW || $status == \App\Enum\PendaftarStatus::ACTIVE)
                                             <x-button-action
                                                 action="cancel({{ $pendaftar->id }})"
@@ -76,6 +91,7 @@
                                             color="danger"
                                             icon="ri-delete-bin-2-line"
                                         />
+
                                     </td>
                                 @endhasrole
                             </tr>
