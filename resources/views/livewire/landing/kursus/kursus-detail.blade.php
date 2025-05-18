@@ -46,8 +46,8 @@
                                     <span>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
                                 </li>
                                 <li><i class="icon-book"></i>
-                                    Total Schedule:
-                                    <span class="text-end">{{ $kursus->jadwals()->count() }}</span>
+                                    Active Schedule:
+                                    <span class="text-end">{{ $kursus->jadwalCountStart }}</span>
                                 </li>
                                 <li>
                                     <i class="icon-book"></i>

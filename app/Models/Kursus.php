@@ -51,4 +51,16 @@ class Kursus extends Model
         return $this->hasMany(Jadwal::class);
     }
 
+    /**
+     * Interact with the jadwalCount attribute.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function jadwalCountStart(): Attribute
+    {
+        return Attribute::get(function($value){
+            return $this->jadwals()->whereDate('start_datetime' , '>=' , now('Asia/Makassar'))->count();
+        });
+    }
+
 }
