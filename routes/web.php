@@ -99,6 +99,7 @@ Route::name('dashboard.')
 Route::get('/chat-wa', function (Request $request) {
     $message = urlencode($request->message); // encoding URL aman
 
-    return redirect()->to("https://wa.me/6285349699104?text={$message}");
+    $phone = getMetadata('metadata_phone_number');
+    return redirect()->to("https://wa.me/{$phone}?text={$message}");
 })->name('chat-wa');
 

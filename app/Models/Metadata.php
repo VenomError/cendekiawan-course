@@ -22,7 +22,7 @@ class Metadata extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeGetValueByKey($query, $key)
-    {
-        return $query->where('key', $key)->first()->value('value');
-    }
+{
+    return $query->where('key', $key)->select('value')->firstOr(fn() => null)?->value;
+}
 }

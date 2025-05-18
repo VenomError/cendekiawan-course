@@ -22,19 +22,22 @@
                             >
                         </a><!-- /.footer-logo -->
                         <ul class="main-footer-two__info-list">
-                            <li><span class="icon-Location"></span>6391 Elgin St. Celina, Delaware 10299
+                            <li><span class="icon-Location"></span>
+                                {{ getMetadata('metadata_location') }}
                             </li>
-                            <li><span class="icon-Telephone"></span><a href="tel:3035550105">(303)
-                                    555-0105</a></li>
+                            <li><span class="icon-Telephone"></span><a
+                                    href="tel:{{ getMetadata('metadata_phone_number') }}"
+                                >
+                                    {{ getMetadata('metadata_phone_number') }}
+                                </a></li>
                             <li><span class="icon-Email"></span><a
-                                    href="mailto:michael.mitc@example.com"
-                                >michael.mitc@example.com</a></li>
+                                    href="mailto:{{ getMetadata('metadata_email') }}"
+                                >{{ getMetadata('metadata_email') }}</a></li>
                         </ul>
                         <div class="main-footer-two__social">
-                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                            <a href="{{ getMetadata('metadata_instagram') }}" class="me-2" target="__blank"><i
+                                    class="fab fa-instagram"
+                                ></i></a> <span class="fw-bold text-white ">instagram</span>
                         </div><!-- /.footer-social -->
                     </div><!-- footer-top -->
                 </div>
@@ -43,17 +46,17 @@
                         <h3 class="main-footer-two__title">Quick Links</h3>
                         <ul>
                             <li><a href="{{ route('landing.kursus.list') }}">Kursus</a></li>
-                         
+
                         </ul><!-- /.list-unstyled -->
                     </div><!-- /.footer-menu -->
                 </div>
                 <div class="col-xl-2 col-md-3 wow fadeInUp" data-wow-delay="300ms">
                     <div class="main-footer-two__navmenu main-footer-two__widget02">
-                   
+
                     </div><!-- /.footer-menu -->
                 </div>
                 <div class="col-xl-3 col-md-12 wow fadeInUp" data-wow-delay="400ms">
-                 
+
                 </div>
             </div><!-- /.row -->
         </div><!-- /.container -->

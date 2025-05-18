@@ -31,37 +31,6 @@
                             >Login</a>
                         </li>
                     @endguest
-
-                    {{-- <li class="dropdown">
-                          <a href="#">Blog</a>
-                          <ul class="sub-menu">
-                              <li class="dropdown">
-                                  <a href="#">Blog Grid</a>
-                                  <ul class="sub-menu">
-                                      <li><a href="blog-grid.html">No Sidebar</a></li>
-                                      <li><a href="blog-grid-left.html">Left Sidebar</a></li>
-                                      <li><a href="blog-grid-right.html">Right Sidebar</a></li>
-                                  </ul>
-                              </li>
-                              <li class="dropdown">
-                                  <a href="#">Blog List</a>
-                                  <ul class="sub-menu">
-                                      <li><a href="blog-list.html">No Sidebar</a></li>
-                                      <li><a href="blog-list-left.html">Left Sidebar</a></li>
-                                      <li><a href="blog-list-right.html">Right Sidebar</a></li>
-                                  </ul>
-                              </li>
-                              <li><a href="blog-carousel.html">Blog Carousel</a></li>
-                              <li class="dropdown">
-                                  <a href="#">Blog Details</a>
-                                  <ul class="sub-menu">
-                                      <li><a href="blog-details.html">No Sidebar</a></li>
-                                      <li><a href="blog-details-left.html">Left Sidebar</a></li>
-                                      <li><a href="blog-details-right.html">Right Sidebar</a></li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </li> --}}
                 </ul>
             </div><!-- /.main-menu__nav -->
             <div class="main-menu__right">
@@ -71,8 +40,8 @@
 
                 <div class="main-menu__info">
                     <span class="icon-Call"></span>
-                    <a href="tel:3035550105">(303) 555-0105</a>
-                    Call to Questions
+                    <a href="https://wa.me/{{ getMetadata('metadata_phone_number') }}" target="__blank">{{ getMetadata('metadata_phone_number') }}</a>
+                    WhatsApp
                 </div>
                 <!-- /.info -->
             </div><!-- /.main-menu__right -->
