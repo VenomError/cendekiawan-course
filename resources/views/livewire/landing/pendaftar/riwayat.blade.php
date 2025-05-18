@@ -5,11 +5,11 @@
             <div class="row justify-content-center">
                 @foreach ($riwayats as $pendaftar)
                 @php
-                    $pendaftar->load(['jadwals','kursuses']);
+                    $pendaftar->load(['jadwal']);
                 @endphp
+
                 
                     <div class="col-xl-8 col-lg-7 mb-4">
-                        
                         <div class="row">
                             <div
                                 class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp"
@@ -26,12 +26,12 @@
                                             </div>
                                             <div class="blog-two__date">
                                                 <i class="icon-clock"></i>
-                                                {{ $pendaftar->jadwals->first()?->value('start_datetime')?->format('D d M, Y h:i a') }}
+                                                {{ $pendaftar->jadwal->start_datetime?->format('D d M, Y h:i a') }}
                                             </div>
                                         </div>
                                         <h3 class="blog-two__title">
-                                            <a href="blog-details.html">
-                                               {{ $pendaftar->kursuses->first()?->value('name') }}
+                                            <a href="{{ route('landing.kursus.detail' , ['slug' => $pendaftar->jadwal?->kursus?->slug]) }}">
+                                               {{ $pendaftar->jadwal?->kursus?->name }}
                                             </a>
                                         </h3><!-- /.blog-title -->
                                      

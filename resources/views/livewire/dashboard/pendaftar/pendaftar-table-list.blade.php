@@ -35,7 +35,7 @@
                                     $pendaftar->load('kursuses');
                                 @endphp
                                 <td>{{ $pendaftar?->user?->name }}</td>
-                                <td>{{ $pendaftar->kursuses->first()->name }}</td>
+                                <td>{{ $pendaftar->kursuses->first()?->name }}</td>
                                 <td>{{ $pendaftar->phone }}</td>
                                 <td>{{ $pendaftar->institute }}</td>
                                 <td>{{ $pendaftar->pekerjaan }}</td>

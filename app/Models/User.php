@@ -1,20 +1,20 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Enum\UserRole;
+use App\Models\Jadwal;
 use App\Models\Pendaftar;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable,HasRoles;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
     ];
 
     /**
@@ -47,13 +47,19 @@ class User extends Authenticatable
     {
         return [
             'password' => 'hashed',
-            'role' => UserRole::class
+            'role'     => UserRole::class,
         ];
     }
 
     public function pendaftaran()
     {
         return $this->hasMany(Pendaftar::class);
+    }
+    public function getJadwalsAttribute()
+    {
+        return $this->pendaftaran->map(function ($pendaftar) {
+            return $pendaftar->jadwal;
+        })->filter(); 
     }
 
     public function scopePimpinans($query)
@@ -64,7 +70,6 @@ class User extends Authenticatable
     {
         return $query->role(UserRole::ADMIN);
     }
-
 
     public function scopePesertas($query)
     {

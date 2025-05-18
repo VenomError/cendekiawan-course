@@ -13,16 +13,14 @@ class Calendar extends Component
     public function mount()
     {
         $auth       = Auth::user();
-        $this->data = $auth->pendaftaran->flatMap(function ($pendaftar) {
-            return $pendaftar->jadwals->map(function ($jadwal) {
-                return [
-                    'title' => $jadwal->kursus->name,
-                    'url'   => route('dashboard.jadwal.detail', ['id' => $jadwal->id]),
-                    'start' => $jadwal->start_datetime,
-                    'end'   => $jadwal->end_datetime,
-                ];
-            });
-        })->toArray();
+        $this->data = $auth->jadwals->map(function ($jadwal) {
+            return [
+                'title' => $jadwal->kursus->name,
+                'url'   => route('landing.kursus.detail', ['slug' => $jadwal->kursus->slug]),
+                'start' => $jadwal->start_datetime,
+                'end'   => $jadwal->end_datetime,
+            ];
+        });
 
     }
     public function render()
