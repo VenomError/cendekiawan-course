@@ -2,9 +2,9 @@
     <nav class="main-menu">
         <div class="container">
             <div class="main-menu__logo">
-                <a href="index.html">
+                <a href="/">
                     <img
-                        src="{{ asset('landing/assets/images/logo-two.png') }}"
+                        src="{{ asset('logo.png') }}"
                         width="183"
                         height="48"
                         alt="Eduact"

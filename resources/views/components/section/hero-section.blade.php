@@ -2817,12 +2817,11 @@
                           </span>
                       </h2>
                       <p class="hero-banner-two__text wow fadeInUp" data-wow-delay="500ms">
-                          All the Lorem Ipsum generators on the Internet tend to repeat<br> predefined chunks as
-                          necessary,
+                          
                       </p>
                       <div class="hero-banner-two__btn wow fadeInUp" data-wow-delay="600ms">
-                          <a href="pricing.html" class="eduact-btn eduact-btn-second"><span
-                                  class="eduact-btn__curve"></span>Try for fee<i class="icon-arrow"></i></a>
+                          <a href="{{ route('landing.kursus.list') }}" class="eduact-btn eduact-btn-second"><span
+                                  class="eduact-btn__curve"></span>Kursus<i class="icon-arrow"></i></a>
                       </div><!-- banner-btn -->
                   </div><!-- banner-content -->
               </div>
