@@ -10,6 +10,7 @@ use Database\Seeders\JadwalSeeder;
 use Database\Seeders\KursusSeeder;
 use Spatie\Permission\Models\Role;
 use Database\Seeders\PesertaSeeder;
+use Database\Seeders\MetadataSeeder;
 use Database\Seeders\PimpinanSeeder;
 use Database\Seeders\PendaftarSeeder;
 
@@ -31,6 +32,8 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('Seeding Role Success');
         $this->command->newLine();
+
+        $this->call(MetadataSeeder::class);
 
         if ($this->command->confirm('Seeding Admin ?', false))
         {
