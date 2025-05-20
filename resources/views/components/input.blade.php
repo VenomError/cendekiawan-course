@@ -7,7 +7,7 @@
         {{ Str::title($label) }}
 
     </label>
-    <input {{ $attributes->merge([
+    <input  {{ $attributes->merge([
         'type' => 'text',
     ]) }} wire:model='{{ $model }}'
         id="{{ Str::snake($model) }}" class="form-control" placeholder="Input {{ Str::title($label) }}">

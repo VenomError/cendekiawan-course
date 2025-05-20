@@ -90,6 +90,7 @@ Route::name('dashboard.')
             Route::get('/', App\Livewire\Jadwal\ListJadwal::class)->name('list');
             Route::get('/calendar', App\Livewire\Jadwal\CalendarJadwal::class)->name('calendar');
             Route::get('/{id}', App\Livewire\Jadwal\DetailJadwal::class)->name('detail');
+            Route::get('/edit/{id}', App\Livewire\Jadwal\EditJadwal::class)->name('edit');
         });
 
     });

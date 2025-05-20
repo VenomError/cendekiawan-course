@@ -16,7 +16,7 @@ class CalendarJadwal extends Component
         $this->data    = $this->jadwals->map(function ($jadwal) {
             return [
                 'title' => $jadwal->kursus->name,
-                'url'   => route('dashboard.jadwal.detail', ['id' => $jadwal->id]),
+                'url'   => route('dashboard.jadwal.edit', ['id' => $jadwal->id]),
                 'start' => $jadwal->start_datetime,
                 'end'   => $jadwal->end_datetime,
             ];

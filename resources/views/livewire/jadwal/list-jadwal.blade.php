@@ -37,9 +37,10 @@
                             </td>
                             <td>
                                 <x-button-action
-                                    action="edit()"
+                                    :action="route('dashboard.jadwal.edit' , ['id' => $jadwal->id])"
                                     color="warning"
                                     icon="ri-edit-2-line"
+                                    type="a"
                                 />
                                 <x-button-action
                                     action="delete()"
