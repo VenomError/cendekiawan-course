@@ -4,20 +4,20 @@
      <!-- Brand Logo Light -->
      <a href="{{ route('dashboard.index') }}" class="logo logo-light">
          <span class="logo-lg">
-             <x-img src="dashboard/assets/images/logo.png" alt="logo" />
+             <x-img src="logo.png" alt="logo" />
          </span>
          <span class="logo-sm">
-             <x-img src="dashboard/assets/images/logo-sm.png" alt="small logo" />
+             <x-img src="logo.png" alt="small logo" />
          </span>
      </a>
 
      <!-- Brand Logo Dark -->
      <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
          <span class="logo-lg">
-             <x-img src="dashboard/assets/images/logo-dark.png" alt="dark logo" />
+             <x-img src="logo.png" alt="dark logo" />
          </span>
          <span class="logo-sm">
-             <x-img src="dashboard/assets/images/logo-dark-sm.png" alt="small logo" />
+             <x-img src="logo.png" alt="small logo" />
          </span>
      </a>
 

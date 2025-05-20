@@ -25,7 +25,7 @@
                         <!-- Logo -->
                         <div class="card-header py-4 text-center bg-primary">
                             <a href="{{ route('login') }}">
-                                <span><x-img src="dashboard/assets/images/logo.png" alt="logo" height="22" /></span>
+                                <span><x-img src="logo.png" alt="logo" width="50%" /></span>
                             </a>
                         </div>
 
