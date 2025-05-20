@@ -46,11 +46,6 @@
                                     </th>
                                     <th>{{ $peserta->created_at->format('d M Y, h:ia') }}</th>
                                     <th class="text-center">
-                                        <x-button-action
-                                            action="view({{ $peserta->id }})"
-                                            color="info"
-                                            icon=" ri-eye-line"
-                                        />
                                         @hasrole(['admin'])
                                             <x-button-action
                                                 action="delete({{ $peserta->id }})"

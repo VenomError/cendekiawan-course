@@ -50,7 +50,7 @@
                                     <th>{{ $admin->created_at->format('d M Y, h:ia') }}</th>
                                     <th class="text-center">
                                         @if ($admin->id == auth()->id())
-                                            <x-button-action action="edit()" color="warning" icon="ri-edit-2-line" />
+                                            <x-button-action type="a" :action="route('dashboard.setting.profile')" color="warning" icon="ri-edit-2-line" />
                                         @endif
                                         @if ($admin->id != auth()->id())
                                             <x-button-action action="delete({{ $admin->id }})" color="danger"
