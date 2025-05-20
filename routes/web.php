@@ -93,9 +93,13 @@ Route::name('dashboard.')
             Route::get('/edit/{id}', App\Livewire\Jadwal\EditJadwal::class)->name('edit');
         });
 
+        Route::prefix('settings')->name('setting.')->group(function () {
+            Route::get('/profile', App\Livewire\Setting\Profile::class)->name('profile');
+            Route::get('/metadata', App\Livewire\Setting\Metadata::class)->name('metadata');
+        });
+
     });
 // END Dashboard
-
 
 Route::get('/chat-wa', function (Request $request) {
     $message = urlencode($request->message); // encoding URL aman
@@ -103,4 +107,3 @@ Route::get('/chat-wa', function (Request $request) {
     $phone = getMetadata('metadata_phone_number');
     return redirect()->to("https://wa.me/{$phone}?text={$message}");
 })->name('chat-wa');
-

@@ -80,7 +80,21 @@ return [
             'title' => 'Calendar',
             'route' => 'dashboard.jadwal.calendar',
             'icon'  => '<i class="ri-calendar-line"></i>',
+            'roles' => ['admin', 'pimpinan'],
+        ],
+    ],
+    'settings'             => [
+        [
+            'title' => 'profile',
+            'route' => 'dashboard.setting.profile',
+            'icon'  => '<i class=" ri-user-settings-line "></i>',
             'roles' => ['admin','pimpinan'],
+        ],
+        [
+            'title' => 'Metadata',
+            'route' => 'dashboard.setting.metadata',
+            'icon'  => '<i class=" ri-file-settings-line "></i>',
+            'roles' => ['admin', 'pimpinan'],
         ],
     ],
 
