@@ -26,10 +26,12 @@ class Kursus extends Model
     protected $fillable = [
         'name',
         'slug',
-    'description',
+        'description',
         'hour_duration',
         'price',
         'thumbnail',
+        'teacher_name',
+        'teacher_foto',
     ];
 
     public function sluggable(): array
@@ -58,8 +60,8 @@ class Kursus extends Model
      */
     public function jadwalCountStart(): Attribute
     {
-        return Attribute::get(function($value){
-            return $this->jadwals()->whereDate('start_datetime' , '>=' , now('Asia/Makassar'))->count();
+        return Attribute::get(function ($value) {
+            return $this->jadwals()->whereDate('start_datetime', '>=', now('Asia/Makassar'))->count();
         });
     }
 

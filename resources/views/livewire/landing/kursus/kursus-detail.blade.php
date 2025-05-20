@@ -6,20 +6,22 @@
             <div class="row">
                 <div class="col-xl-8">
                     <div class="course-details__thumb">
-                        <img
-                            src="{{ Storage::url($kursus->thumbnail) }}"
-                            alt="eduact"
-                        >
+                        <img src="{{ Storage::url($kursus->thumbnail) }}" alt="eduact">
                     </div><!-- details-thumb -->
                     <div class="course-details__meta">
                         <div class="course-details__meta__author">
-                            <h5 class="course-details__meta__name"></h5>
-                            <p class="course-details__meta__designation"></p>
+                            <img src="{{ asset(Storage::url($kursus->teacher_foto)) }}" alt="">
+                            <h5 class="course-details__meta__name">{{ $kursus->teacher_name ?? '-' }}</h5>
+                            <p class="course-details__meta__designation">Teacher</p>
+                        </div>
+                        <div class="course-details__meta__cats"></div>
+                        <div class="course-details__meta__ratings">
+                           
                         </div>
                         <div class="course-details__meta__price">
-                            {{ Number::currency($kursus->price, 'IDR', 'ID', 2) }}
+                            {{ Number::currency($kursus->price , 'IDR' , 'ID') }}
                         </div>
-                    </div><!-- details-meta -->
+                    </div>
                     <h3 class="course-details__title">{{ Str::title($kursus->name) }}</h3>
                     <!-- details-title -->
                     <div class="course-details__tabs tabs-box">
@@ -45,6 +47,9 @@
                                     Duration:
                                     <span>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
                                 </li>
+                                <li><i
+                                        class="icon-reading"></i>Teacher:<span>{{ $kursus->teacher_name ?? '-' }}</span>
+                                </li>
                                 <li><i class="icon-book"></i>
                                     Active Schedule:
                                     <span class="text-end">{{ $kursus->jadwalCountStart }}</span>
@@ -56,8 +61,7 @@
                                         class="text-end">{{ $lastSchedule?->format('Y-m-d H:i a') ?? 'None' }}</span>
                                 </li>
                             </ul>
-                            <a
-                                href="{{ route('landing.kursus.booking', ['slug' => $kursus->slug]) }}"
+                            <a href="{{ route('landing.kursus.booking', ['slug' => $kursus->slug]) }}"
                                 class="eduact-btn eduact-btn-second"
                             >
                                 <span class="eduact-btn__curve">

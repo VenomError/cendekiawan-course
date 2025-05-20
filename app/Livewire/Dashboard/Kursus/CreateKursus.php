@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Dashboard\Kursus;
 
 use App\Livewire\Forms\Kursus\CreateKursusForm;
@@ -11,6 +10,7 @@ class CreateKursus extends Component
     use WithFileUploads;
 
     public $thumbnail;
+    public $teacherFoto;
 
     public CreateKursusForm $form;
 
@@ -22,10 +22,12 @@ class CreateKursus extends Component
     public function create()
     {
         $this->validate([
-            'thumbnail' => ['required','image'],
+            'thumbnail'   => ['required', 'image'],
+            'teacherFoto' => ['required', 'image'],
         ]);
 
         $this->form->uploadThumbnail($this->thumbnail);
+        $this->form->uploadTeacherFoto($this->teacherFoto);
         $this->form->create();
     }
 }

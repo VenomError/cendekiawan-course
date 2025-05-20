@@ -36,6 +36,7 @@
                         <x-slot:head>
                             <tr>
                                 <th>Kursus Name</th>
+                                <th>Teacher</th>
                                 <th>Duration (Hour)</th>
                                 <th>Duration</th>
                                 <th>Price</th>
@@ -51,10 +52,18 @@
                                     <td>
                                         <img
                                             src="{{ Storage::url($kursus->thumbnail) }}"
-                                            alt="thumbnail"
+                                            alt=""
                                             class="avatar-md me-2"
                                         >
                                         <span>{{ $kursus->name }}</span>
+                                    </td>
+                                    <td>
+                                        <img
+                                            src="{{ Storage::url($kursus->teacher_foto) }}"
+                                            alt=""
+                                            class="avatar-md me-2"
+                                        >
+                                        <span>{{ $kursus->teacher_name ?? '-' }}</span>
                                     </td>
 
                                     <td>{{ $kursus->hour_duration }} </td>

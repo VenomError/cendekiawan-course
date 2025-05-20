@@ -57,11 +57,11 @@
                                         type="a"
                                         title="dasda"
                                     >Receipt</x-button-action>
-                                    <span
+                                    {{-- <span
                                         class="btn  btn-sm btn-{{ pembayaranStatusColor($pendaftar?->pembayaran?->status) }}"
                                     >
                                         {{ $pendaftar?->pembayaran?->status }}
-                                    </span>
+                                    </span> --}}
                                 </td>
                                 <td>
                                     {{ $pendaftar->created_at }}

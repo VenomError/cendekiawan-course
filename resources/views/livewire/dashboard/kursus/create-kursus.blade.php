@@ -11,18 +11,65 @@
                     <x-form action="create()">
 
                         @if ($thumbnail && $thumbnail->temporaryUrl())
-                            <div class="text-center mb-3">
-                                <img src="{{ $thumbnail->temporaryUrl() }}" alt="image" class="img-fluid rounded img-thumbnail"
-                                    width="200" />
+                            <div class="mb-3 text-center">
+                                <img
+                                    src="{{ $thumbnail->temporaryUrl() }}"
+                                    alt="image"
+                                    class="img-fluid img-thumbnail rounded"
+                                    width="200"
+                                />
                             </div>
                         @endif
 
-                        <x-input label="Upload Thumbnail" model="thumbnail" type="file" />
-                        <x-input label="Kursus Name" model="form.name" type="text" />
-                        <x-input label="Price (Rp)" model="form.price" type="number" />
-                        <x-input label="Duration (Hour)" model="form.hour_duration" type="number" />
+                        <x-input
+                            label="Upload Thumbnail"
+                            model="thumbnail"
+                            type="file"
+                            accept="image/*"
+                        />
+                        <x-input
+                            label="Kursus Name"
+                            model="form.name"
+                            type="text"
+                        />
+                        <x-input
+                            label="Price (Rp)"
+                            model="form.price"
+                            type="number"
+                        />
+                        <x-input
+                            label="Duration (Hour)"
+                            model="form.hour_duration"
+                            type="number"
+                        />
 
-                        <x-textarea label="Description" model="form.description" rows="10" />
+                        <x-textarea
+                            label="Description"
+                            model="form.description"
+                            rows="10"
+                        />
+
+                        @if ($teacherFoto && $teacherFoto->temporaryUrl())
+                            <div class="mb-3 text-center">
+                                <img
+                                    src="{{ $teacherFoto->temporaryUrl() }}"
+                                    alt="image"
+                                    class="img-fluid img-thumbnail rounded"
+                                    width="200"
+                                />
+                            </div>
+                        @endif
+                        <x-input
+                            label="Upload Teacher Foto"
+                            model="teacherFoto"
+                            type="file"
+                            accept="image/*"
+                        />
+                        <x-input
+                            label="Teacher Name"
+                            model="form.teacher_name"
+                            type="text"
+                        />
 
                         <x-slot:button>
                             Create

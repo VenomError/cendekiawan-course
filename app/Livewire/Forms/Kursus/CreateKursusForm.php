@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Livewire\Forms\Kursus;
 
 use App\Models\Kursus;
-use Livewire\Form;
-use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Validate;
+use Livewire\Form;
 use Livewire\WithFileUploads;
 
 class CreateKursusForm extends Form
@@ -17,14 +16,16 @@ class CreateKursusForm extends Form
     public $hour_duration;
     public $description;
     public $thumbnail;
+    public $teacher_name;
+    public $teacher_foto;
 
     public function rules()
     {
         return [
-            'name' => 'required|unique:kursuses,name',
-            'price' => 'required|numeric|min:1',
+            'name'          => 'required|unique:kursuses,name',
+            'price'         => 'required|numeric|min:1',
             'hour_duration' => 'required|numeric|min:1',
-            'description' => 'required',
+            'description'   => 'required',
         ];
     }
 
@@ -45,13 +46,10 @@ class CreateKursusForm extends Form
                 $this->reset();
                 return $kursus;
             });
-        } catch (ValidationException $th)
-        
-        {
+        } catch (ValidationException $th) {
             flash()->error($th->getMessage());
             throw $th;
-        } catch (\Throwable $th)
-        {
+        } catch (\Throwable $th) {
             flash()->error('Failed to Create Kursus');
             return false;
         }
@@ -60,10 +58,12 @@ class CreateKursusForm extends Form
     public function uploadThumbnail($thumbnail)
     {
 
-        $this->thumbnail = $thumbnail->storePublicly(path:'kursus/thumbnail' , options:'public');
-
+        $this->thumbnail = $thumbnail->storePublicly(path: 'kursus/thumbnail', options: 'public');
     }
+    public function uploadTeacherFoto($teacherFoto)
+    {
 
-
+        $this->teacher_foto = $teacherFoto->storePublicly(path: 'kursus/teacher-foto', options: 'public');
+    }
 
 }
