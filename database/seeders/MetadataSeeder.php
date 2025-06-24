@@ -28,6 +28,14 @@ class MetadataSeeder extends Seeder
                 'key'   => 'metadata_instagram',
                 'value' => 'instagram.com',
             ],
+            [
+                'key'   => 'metadata_rekening_number',
+                'value' => '1234567890',
+            ],
+            [
+                'key'   => 'metadata_rekening_name',
+                'value' => 'BCA',
+            ],
         ];
         $datas = collect($datas);
         $this->command->newLine()->info("Seeding Metadata");

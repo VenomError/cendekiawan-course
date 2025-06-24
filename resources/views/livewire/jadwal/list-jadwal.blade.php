@@ -14,7 +14,6 @@
                         <th>Start</th>
                         <th>End</th>
                         <th>Location</th>
-                        <th>Quota</th>
                         <th>Status</th>
                         <th></th>
                     </tr>
@@ -27,7 +26,6 @@
                             <td>{{ $jadwal->start_datetime }}</td>
                             <td>{{ $jadwal->end_datetime }}</td>
                             <td>{{ $jadwal->location }}</td>
-                            <td>{{ $jadwal->quota }}</td>
                             <td>
                                 <span
                                     class="badge bg-{{ pendaftarStatusColor($jadwal->pendaftar->status) }}"

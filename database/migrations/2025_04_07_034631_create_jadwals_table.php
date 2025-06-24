@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->timestamp('start_datetime');
             $table->timestamp('end_datetime');
             $table->string('location');
-            $table->integer('quota');
+            $table->integer('quota')->nullable();
 
             $table->timestamps();
         });

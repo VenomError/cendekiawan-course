@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                                 {{-- Quota --}}
-                                <div class="col-xl-6">
+                                {{-- <div class="col-xl-6">
                                     <code class="px-2">
                                         @error('jadwalForm.quota')
                                             {{ $message }}
@@ -157,7 +157,7 @@
                                             wire:model='jadwalForm.quota'
                                         >
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="row bs-gutter-x-20">
                                     <div class="col-md-4">

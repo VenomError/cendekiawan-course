@@ -32,7 +32,7 @@ class CreateJadwalForm extends Form
         return [
             'start_datetime' => ['required', 'date', 'after_or_equal:now'],
             'location'       => ['required'],
-            'quota'          => ['required', 'numeric'],
+            'quota'          => ['nullable', 'numeric'],
         ];
 
     }
