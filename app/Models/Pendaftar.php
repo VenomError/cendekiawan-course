@@ -52,8 +52,9 @@ class Pendaftar extends Model
         return $this->hasOne(Pembayaran::class);
     }
 
-    public function jadwal()
+    public function jadwals()
     {
-        return $this->hasOne(Jadwal::class);
+        return $this->belongsToMany(Jadwal::class , 'jadwal_pendaftar' , 'pendaftar_id' , 'jadwal_id');
     }
+
 }

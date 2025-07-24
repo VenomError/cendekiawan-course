@@ -37,7 +37,7 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
+                                        <label for="" class="form-label">
                                             Institute
                                         </label>
                                         <input
@@ -58,7 +58,7 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
+                                        <label for="" class="form-label">
                                             Pekerjaan
                                         </label>
                                         <input
@@ -79,7 +79,7 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
+                                        <label for="" class="form-label">
                                             Jabatan
                                         </label>
                                         <input
@@ -103,7 +103,7 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
+                                        <label for="" class="form-label">
                                             Booking Date
                                         </label>
                                         <input
@@ -124,7 +124,7 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
+                                        <label for="" class="form-label">
                                             Location
                                         </label>
                                         <input
@@ -137,27 +137,7 @@
                                         >
                                     </div>
                                 </div>
-                                {{-- Quota --}}
-                                {{-- <div class="col-xl-6">
-                                    <code class="px-2">
-                                        @error('jadwalForm.quota')
-                                            {{ $message }}
-                                        @enderror
-                                    </code>
-                                    <div class="checkout-page__input-box">
-                                         <label for="" class="form-label">
-                                            Total Quota
-                                        </label>
-                                        <input
-                                            type="number"
-                                            @error('jadwalForm.quota')
-                                            class=" border border-danger "
-                                            @enderror
-                                            placeholder="Input Total Quota"
-                                            wire:model='jadwalForm.quota'
-                                        >
-                                    </div>
-                                </div> --}}
+
 
                                 <div class="row bs-gutter-x-20">
                                     <div class="col-md-4">

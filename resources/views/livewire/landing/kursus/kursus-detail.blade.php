@@ -65,7 +65,7 @@
                                 class="eduact-btn eduact-btn-second"
                             >
                                 <span class="eduact-btn__curve">
-                                </span>Booking<i class="icon-arrow"></i></a>
+                                </span>Register<i class="icon-arrow"></i></a>
                         </div>
                     </div>
                 </div>

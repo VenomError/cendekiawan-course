@@ -36,7 +36,7 @@
 
 <div wire:ignore class="table-responsive">
 
-    <table id="{{ $id }}" class="table table-striped table-bordered  nowrap w-100">
+    <table id="{{ $id }}" class="table  table-bordered  nowrap w-100">
         <thead class="table-dark">
             {{ $head }}
         </thead>

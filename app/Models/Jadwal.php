@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Models;
 
 use App\Models\Kursus;
 use App\Models\Pendaftar;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Jadwal extends Model
 {
@@ -26,6 +25,8 @@ class Jadwal extends Model
         'quota',
     ];
 
+    protected $appends = ['status'];
+
     /**
      * The attributes that should be cast.
      *
@@ -33,12 +34,12 @@ class Jadwal extends Model
      */
     protected $casts = [
         'start_datetime' => 'datetime',
-        'end_datetime' => 'datetime',
+        'end_datetime'   => 'datetime',
     ];
 
-    public function pendaftar()
+    public function pendaftars()
     {
-        return $this->belongsTo(Pendaftar::class);
+        return $this->belongsToMany(Pendaftar::class, 'jadwal_pendaftar', 'jadwal_id', 'pendaftar_id');
     }
 
     public function kursus()
@@ -46,5 +47,17 @@ class Jadwal extends Model
         return $this->belongsTo(Kursus::class);
     }
 
+    public function getStatusAttribute(): array
+    {
+        $now = \Carbon\Carbon::now();
+
+        if ($now->lt($this->start_datetime)) {
+            return ['label' => 'Upcoming', 'color' => 'primary'];
+        } elseif ($now->between($this->start_datetime, $this->end_datetime)) {
+            return ['label' => 'Ongoing', 'color' => 'success'];
+        } else {
+            return ['label' => 'Ended', 'color' => 'secondary'];
+        }
+    }
 
 }
