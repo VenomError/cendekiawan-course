@@ -24,6 +24,7 @@ class EditJadwal extends Component
 
     }
 
+
     public function render()
     {
         return view('livewire.jadwal.edit-jadwal');
