@@ -12,7 +12,6 @@ use Livewire\Component;
 #[Layout('layouts.landing')]
 class BookingKursus extends Component
 {
-    public CreateJadwalForm $jadwalForm;
     public CreatePendaftarForm $pendaftarForm;
     public $kursus;
     public $pendaftar;
@@ -38,7 +37,9 @@ class BookingKursus extends Component
         DB::beginTransaction();
         try {
             $pendaftar = $this->pendaftarForm->create($this->kursus);
-            $jadwal    = $this->jadwalForm->create($this->kursus, $pendaftar);
+            if(!$pendaftar){
+                throw new \Exception('pendaftaran gagal');
+            }
             DB::commit();
             sweetalert("Booking Success !");
 

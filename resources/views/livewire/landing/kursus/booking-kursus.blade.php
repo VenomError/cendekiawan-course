@@ -16,10 +16,11 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
+                                        <label for="phone-number" class="form-label">
                                             Phone Number
                                         </label>
                                         <input
+                                            id="phone-number"
                                             type="tel"
                                             @error('pendaftarForm.phone')
                                             class=" border border-danger "
@@ -37,10 +38,11 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
+                                        <label for="institutes" class="form-label">
                                             Institute
                                         </label>
                                         <input
+                                        id="institutes"
                                             type="text"
                                             @error('pendaftarForm.institute')
                                                 class=" border border-danger "
@@ -58,10 +60,11 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
+                                        <label for="pekerjaan" class="form-label">
                                             Pekerjaan
                                         </label>
                                         <input
+                                        id="pekerjaan"
                                             type="text"
                                             @error('pendaftarForm.pekerjaan')
                                                 class=" border border-danger "
@@ -79,61 +82,17 @@
                                         @enderror
                                     </code>
                                     <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
+                                        <label for="jabatan" class="form-label">
                                             Jabatan
                                         </label>
                                         <input
+                                        id="jabatan"
                                             type="text"
                                             @error('pendaftarForm.jabatan')
                                                 class=" border border-danger "
                                             @enderror
                                             placeholder="Input Jabatan"
                                             wire:model='pendaftarForm.jabatan'
-                                        >
-                                    </div>
-                                </div>
-
-                                {{-- JADWAL FORM --}}
-
-                                {{-- Start Date --}}
-                                <div class="col-xl-6">
-                                    <code class="px-2">
-                                        @error('jadwalForm.start_datetime')
-                                            {{ $message }}
-                                        @enderror
-                                    </code>
-                                    <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
-                                            Booking Date
-                                        </label>
-                                        <input
-                                            type="datetime-local"
-                                            @error('jadwalForm.start_datetime')
-                                            class=" border border-danger "
-                                            @enderror
-                                            placeholder="Input Booking Date"
-                                            wire:model='jadwalForm.start_datetime'
-                                        >
-                                    </div>
-                                </div>
-                                {{-- Location --}}
-                                <div class="col-xl-6">
-                                    <code class="px-2">
-                                        @error('jadwalForm.location')
-                                            {{ $message }}
-                                        @enderror
-                                    </code>
-                                    <div class="checkout-page__input-box">
-                                        <label for="" class="form-label">
-                                            Location
-                                        </label>
-                                        <input
-                                            type="text"
-                                            @error('jadwalForm.location')
-                                            class=" border border-danger "
-                                            @enderror
-                                            placeholder="Input Location"
-                                            wire:model='jadwalForm.location'
                                         >
                                     </div>
                                 </div>

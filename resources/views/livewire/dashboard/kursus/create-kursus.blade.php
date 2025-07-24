@@ -43,6 +43,45 @@
                             type="number"
                         />
 
+                        <div class="d-flex align-items-center gap-4">
+                            <div style="flex: 1;">
+                                <x-input
+                                    label="Benefit"
+                                    model="benefit"
+                                    type="text"
+                                />
+                            </div>
+                            <x-button-action
+                                type="button"
+                                color="success"
+                                icon="ri-add-box-line"
+                                action="addBenefit()"
+                            >
+                                Add
+                            </x-button-action>
+                        </div>
+                        @error('form.benefits')
+                        <small class="text-danger" >{{  $message }}</small>
+                        @enderror
+
+                        <div class="col-12 mb-3">
+                            <ul class="list-group">
+                                @foreach ($form->benefits as $item)
+                                    <li
+                                        class="list-group-item list-group-flush d-flex justify-content-between align-items-center">
+                                        {{ $loop->index + 1 }}. {{ $item }}
+                                        <x-button-action
+                                            type="button"
+                                            action="removeBenefit({{ $loop->index }})"
+                                        >
+                                            remove
+                                        </x-button-action>
+
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
                         <x-textarea
                             label="Description"
                             model="form.description"

@@ -19,11 +19,6 @@
         </div><!-- /.course-thumb -->
         <div class="course-two__content">
             <div class="course-two__time">{{ $duration }} Hours</div>
-            {{-- <div class="course-two__ratings">
-                <span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-                    class="icon-star"></span><span class="icon-star"></span>
-                <div class="course-two__ratings__reviews">(25 Reviews)</div>
-            </div> --}}
             <h3 class="course-two__title" style="height: 70px">
                 <a href="{{ route('landing.kursus.detail' , ['slug' => $slug]) }}">{{ $name }}</a>
             </h3>

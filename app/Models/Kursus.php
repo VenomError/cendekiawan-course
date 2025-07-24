@@ -32,6 +32,11 @@ class Kursus extends Model
         'thumbnail',
         'teacher_name',
         'teacher_foto',
+        'benefits',
+    ];
+
+    protected $casts = [
+        'benefits' => 'array',
     ];
 
     public function sluggable(): array

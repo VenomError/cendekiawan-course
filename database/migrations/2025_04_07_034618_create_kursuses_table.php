@@ -23,6 +23,8 @@ return new class extends Migration {
             $table->string('teacher_name')->nullable();
             $table->string('teacher_foto')->nullable();
 
+            $table->json('benefits')->nullable();
+
             $table->timestamps();
         });
     }

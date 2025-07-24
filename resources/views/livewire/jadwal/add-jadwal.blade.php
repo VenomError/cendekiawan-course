@@ -23,20 +23,11 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-lg-6">
-                            <x-input
-                                label="Start Datetime"
-                                model="form.start_datetime"
-                                type="datetime-local"
-                            />
-                        </div>
-                        <div class="col-lg-6">
-                            <x-input
-                                label="End Datetime"
-                                model="form.end_datetime"
-                                type="datetime-local"
-                            />
-                        </div>
+                        <x-input
+                            label="Start Datetime"
+                            model="form.start_datetime"
+                            type="datetime-local"
+                        />
                         <x-input
                             label="Quota"
                             model="form.quota"

@@ -14,11 +14,18 @@ class CalendarJadwal extends Component
     {
         $this->jadwals = Jadwal::all();
         $this->data    = $this->jadwals->map(function ($jadwal) {
+            
             return [
-                'title' => $jadwal->kursus->name,
-                'url'   => route('dashboard.jadwal.edit', ['id' => $jadwal->id]),
-                'start' => $jadwal->start_datetime,
-                'end'   => $jadwal->end_datetime,
+                'title'     => $jadwal->kursus->name,
+                'url'       => route('dashboard.jadwal.edit', ['id' => $jadwal->id]),
+                'start'     => $jadwal->start_datetime,
+                'end'       => $jadwal->end_datetime,
+                'color'     => match ($jadwal->status['color']) {
+                    'primary'   => '#007bff',
+                    'success'   => '#28a745',
+                    'secondary' => '#6c757d',
+                    default     => '#343a40',
+                },
             ];
         });
 

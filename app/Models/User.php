@@ -57,9 +57,9 @@ class User extends Authenticatable
     }
     public function getJadwalsAttribute()
     {
-        return $this->pendaftaran->map(function ($pendaftar) {
-            return $pendaftar->jadwal;
-        })->filter(); 
+        return $this->pendaftaran->flatMap(function ($pendaftar) {
+            return $pendaftar->jadwals()->with('kursus')->get();
+        });
     }
 
     public function scopePimpinans($query)

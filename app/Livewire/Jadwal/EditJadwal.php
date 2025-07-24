@@ -16,7 +16,8 @@ class EditJadwal extends Component
     {
         $this->jadwal = Jadwal::findOrFail($id);
         $this->kursus = $this->jadwal->kursus;
-
+        
+        $this->form->kursus_id = $this->jadwal->kursus_id;
         $this->form->start_datetime = $this->jadwal->start_datetime->format('Y-m-d\TH:i');
         $this->form->location = $this->jadwal->location;
         $this->form->quota = $this->jadwal->quota;
@@ -30,6 +31,6 @@ class EditJadwal extends Component
 
     public function submit()
     {
-        $this->form->update($this->jadwal, $this->kursus);
+        $this->form->update($this->jadwal);
     }
 }

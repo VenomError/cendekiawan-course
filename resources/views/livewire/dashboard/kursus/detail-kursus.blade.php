@@ -29,6 +29,17 @@
                             <strong>Duration:</strong>
                             <span class="ms-2">{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
                         </p>
+                        <p class="text-muted">
+                            <strong>Benefit:</strong>
+                            <ul class="list-group">
+                                @foreach ($kursus->benefits as $item)
+                                    <li
+                                        class="list-group-item list-group-flush d-flex justify-content-between align-items-center">
+                                        {{ $loop->index + 1 }}. {{ $item }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </p>
 
                     </div>
                 </div>
@@ -115,7 +126,7 @@
                                 <x-slot:body>
                                     @foreach ($jadwals as $jadwal)
                                         <tr>
-                                            <td>{{ $jadwal->pendaftar?->user?->name }}</td>
+                                            <td>{{ $jadwal->pendaftars->count() }}</td>
                                             <td>{{ $jadwal->start_datetime }}</td>
                                             <td>{{ $jadwal->end_datetime }}</td>
                                             <td>{{ $jadwal->quota }}</td>

@@ -10,16 +10,19 @@
                     </div><!-- details-thumb -->
                     <div class="course-details__meta">
                         <div class="course-details__meta__author">
-                            <img src="{{ asset(Storage::url($kursus->teacher_foto)) }}" alt="">
-                            <h5 class="course-details__meta__name">{{ $kursus->teacher_name ?? '-' }}</h5>
+                            <img src="{{ asset(Storage::url($kursus->teacher_foto)) }}"
+                                alt=""
+                            >
+                            <h5 class="course-details__meta__name">
+                                {{ $kursus->teacher_name ?? '-' }}</h5>
                             <p class="course-details__meta__designation">Teacher</p>
                         </div>
                         <div class="course-details__meta__cats"></div>
                         <div class="course-details__meta__ratings">
-                           
+
                         </div>
                         <div class="course-details__meta__price">
-                            {{ Number::currency($kursus->price , 'IDR' , 'ID') }}
+                            {{ Number::currency($kursus->price, 'IDR', 'ID') }}
                         </div>
                     </div>
                     <h3 class="course-details__title">{{ Str::title($kursus->name) }}</h3>
@@ -60,6 +63,14 @@
                                     <span
                                         class="text-end">{{ $lastSchedule?->format('Y-m-d H:i a') ?? 'None' }}</span>
                                 </li>
+                                @foreach ($kursus->benefits as $item)
+                                    <li>
+                                        @if ($loop->first)
+                                        Benefit 
+                                        @endif
+                                        <span>{{ $item }}</span>
+                                    </li>
+                                @endforeach
                             </ul>
                             <a href="{{ route('landing.kursus.booking', ['slug' => $kursus->slug]) }}"
                                 class="eduact-btn eduact-btn-second"

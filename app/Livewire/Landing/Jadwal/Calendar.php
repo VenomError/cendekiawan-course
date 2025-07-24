@@ -1,6 +1,7 @@
 <?php
 namespace App\Livewire\Landing\Jadwal;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -12,15 +13,21 @@ class Calendar extends Component
 
     public function mount()
     {
-        $auth       = Auth::user();
-        $this->data = $auth->jadwals->map(function ($jadwal) {
+        $user = Auth::user();
+
+        $this->data = $user->jadwals->map(function ($jadwal) {
             return [
-                'title' => $jadwal->kursus->name,
-                'url'   => route('landing.kursus.detail', ['slug' => $jadwal->kursus->slug]),
-                'start' => $jadwal->start_datetime,
-                'end'   => $jadwal->end_datetime,
+                'title'     => $jadwal->kursus->name ?? 'Tanpa Kursus',
+                'start'     => $jadwal->start_datetime,
+                'end'       => $jadwal->end_datetime,
+                'color'     => match ($jadwal->status['color'] ?? null) {
+                    'primary'   => '#007bff',
+                    'success'   => '#28a745',
+                    'secondary' => '#6c757d',
+                    default     => '#343a40',
+                },
             ];
-        });
+        })->toArray();
 
     }
     public function render()

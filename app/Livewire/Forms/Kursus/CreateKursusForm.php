@@ -18,6 +18,7 @@ class CreateKursusForm extends Form
     public $thumbnail;
     public $teacher_name;
     public $teacher_foto;
+    public array $benefits = [];
 
     public function rules()
     {
@@ -26,6 +27,7 @@ class CreateKursusForm extends Form
             'price'         => 'required|numeric|min:1',
             'hour_duration' => 'required|numeric|min:1',
             'description'   => 'required',
+            'benefits'      => 'required|array'
         ];
     }
 

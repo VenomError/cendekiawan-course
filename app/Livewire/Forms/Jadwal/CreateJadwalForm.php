@@ -1,15 +1,13 @@
 <?php
 namespace App\Livewire\Forms\Jadwal;
 
-use Carbon\Carbon;
-use Livewire\Form;
 use App\Models\Jadwal;
 use App\Models\Kursus;
-use Livewire\Attributes\Validate;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Validate;
+use Livewire\Form;
 
 class CreateJadwalForm extends Form
 {
@@ -25,8 +23,6 @@ class CreateJadwalForm extends Form
     #[Validate( as : 'start date')]
     public $start_datetime;
     #[Validate( as : 'end date')]
-    public $end_datetime;
-    #[Validate( as : 'location')]
     public $location;
     #[Validate( as : 'quota')]
     public $quota;
@@ -37,28 +33,32 @@ class CreateJadwalForm extends Form
         return [
             'kursus_id'      => ['required', 'exists:kursuses,id'],
             'start_datetime' => ['required', 'date', 'after_or_equal:now'],
-            'end_datetime'   => ['required', 'date', 'after:start_datetime'],
             'location'       => ['required'],
-            'quota'          => ['required', 'numeric' , 'gt:0'],
+            'quota'          => ['required', 'numeric', 'gt:0'],
         ];
 
     }
 
     public function create()
     {
-
         $this->validate();
+
+        $kursus = Kursus::find($this->kursus_id);
+
+        // Hitung end_datetime berdasarkan start_datetime + durasi dalam jam
+        $start_datetime = Carbon::parse($this->start_datetime);
+        $end_datetime   = $start_datetime->copy()->addHours($kursus->hour_duration);
 
         // Cek konflik jadwal
         $conflict = Jadwal::where('kursus_id', $this->kursus_id)
-            ->where(function ($query) {
-                $query->where('start_datetime', '<', $this->end_datetime)
-                    ->where('end_datetime', '>', $this->start_datetime);
+            ->where(function ($query) use ($start_datetime, $end_datetime) {
+                $query->where('start_datetime', '<', $end_datetime)
+                    ->where('end_datetime', '>', $start_datetime);
             })
             ->exists();
 
         if ($conflict) {
-            return $this->addError('start_datetime' , 'Jadwal bentrok dengan jadwal kursus yang sudah ada');
+            return $this->addError('start_datetime', 'Jadwal bentrok dengan jadwal kursus yang sudah ada');
         }
 
         DB::beginTransaction();
@@ -66,16 +66,18 @@ class CreateJadwalForm extends Form
             // Simpan jadwal
             $jadwal = new Jadwal([
                 'kursus_id'      => $this->kursus_id,
-                'start_datetime' => $this->start_datetime,
-                'end_datetime'   => $this->end_datetime,
+                'start_datetime' => $start_datetime,
+                'end_datetime'   => $end_datetime,
                 'quota'          => $this->quota,
                 'location'       => $this->location,
             ]);
 
             $jadwal->save();
+
             DB::commit();
-            flash('new jadwal created');
+            flash('New jadwal created');
             $this->reset();
+
             return $jadwal;
 
         } catch (\Throwable $th) {
@@ -83,41 +85,50 @@ class CreateJadwalForm extends Form
             sweetalert()->error($th->getMessage());
             return false;
         }
-
     }
 
-    public function update(
-        Jadwal | Model | Collection $jadwal,
-        Kursus | Model $kursus
-    ) {
-
+    public function update(Jadwal|Model $jadwal)
+    {
         $this->validate();
+
+        $kursus = Kursus::findOrFail($this->kursus_id);
+
+        $start_datetime = Carbon::parse($this->start_datetime);
+        $end_datetime   = $start_datetime->copy()->addHours($kursus->hour_duration);
+
+        // Cek konflik, kecuali dengan dirinya sendiri
+        $conflict = Jadwal::where('kursus_id', $this->kursus_id)
+            ->where('id', '!=', $jadwal->id)
+            ->where(function ($query) use ($start_datetime, $end_datetime) {
+                $query->where('start_datetime', '<', $end_datetime)
+                    ->where('end_datetime', '>', $start_datetime);
+            })
+            ->exists();
+
+        if ($conflict) {
+            return $this->addError('start_datetime', 'Jadwal bentrok dengan jadwal kursus lain');
+        }
+
         DB::beginTransaction();
         try {
-            $start1 = Carbon::parse($this->start_datetime);
-            $start2 = Carbon::parse($jadwal->start_datetime);
-
-            if (! $start1->equalTo($start2)) {
-                // $this->fixConflictJadwal($kursus);
-                flash('Fix Conflict Jadwal Success ');
-            }
-
             $jadwal->update([
-                'start_datetime' => $this->start_datetime,
-                'end_datetime'   => $this->end_datetime,
-                'quota'          => $this->quota,
+                'kursus_id'      => $this->kursus_id,
+                'start_datetime' => $start_datetime,
+                'end_datetime'   => $end_datetime,
                 'location'       => $this->location,
+                'quota'          => $this->quota,
             ]);
-            DB::commit();
-            flash('Updated Successfully');
-            $this->start_datetime = $this->start_datetime->format('Y-m-d\TH:i');
-            return $jadwal;
 
-        } catch (\Throwable $th) {
+            DB::commit();
+
+            flash('Jadwal berhasil diperbarui');
+            return true;
+
+        } catch (\Throwable $e) {
             DB::rollBack();
-            sweetalert()->error($th->getMessage());
+            sweetalert()->error($e->getMessage());
             return false;
         }
-
     }
+
 }

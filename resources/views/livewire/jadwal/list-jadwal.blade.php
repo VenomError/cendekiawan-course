@@ -57,9 +57,9 @@
 
                             <td class="text-center">{{ $total }}</td>
                             <td class="text-center">
-                                {{ $jadwal->start_datetime->format('d M Y H:i') }}</td>
+                                {{ $jadwal->start_datetime->format('Y-m-d h:ia') }}</td>
                             <td class="text-center">
-                                {{ $jadwal->end_datetime->format('d M Y H:i') }}
+                                {{ $jadwal->end_datetime->format('Y-m-d h:ia') }}
                             </td>
 
                             <td class="text-center">
@@ -80,7 +80,7 @@
                                     type="a"
                                 />
                                 <x-button-action
-                                    action="delete()"
+                                    action="delete({{ $jadwal->id }})"
                                     color="danger"
                                     icon="ri-delete-bin-line"
                                 />

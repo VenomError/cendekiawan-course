@@ -14,9 +14,24 @@ class CreateKursus extends Component
 
     public CreateKursusForm $form;
 
+    public $benefit;
+
     public function render()
     {
         return view('livewire.dashboard.kursus.create-kursus');
+    }
+
+    public function addBenefit(){
+        $this->validate([
+            'benefit' => 'required|string|max:255'
+        ]);
+        $this->form->benefits[] = $this->benefit;
+        $this->reset('benefit');
+    }
+
+    public function removeBenefit($index){
+        unset($this->form->benefits[$index]);
+        $this->form->benefits = array_values($this->form->benefits);
     }
 
     public function create()
