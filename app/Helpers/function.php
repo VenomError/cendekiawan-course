@@ -2,8 +2,8 @@
 
 function convertHoursToDaysAndHours($hours)
 {
-    $days           = floor($hours / 24);
-    $remainingHours = $hours % 24;
+    $days           = floor((int)$hours / 24);
+    $remainingHours =(int) $hours % 24;
 
     $result = '';
 

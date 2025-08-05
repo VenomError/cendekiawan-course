@@ -51,9 +51,9 @@
                                     <span>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
                                 </li>
                                   <li>
-                                    <i class="icon-history"></i>
-                                    Duration:
-                                    <span>{{ convertHoursToDaysAndHours($location) }}</span>
+                                    <i class="icon-map-marker"></i>
+                                    Location:
+                                    <span>{{ $location }}</span>
                                 </li>
                                 <li><i
                                         class="icon-reading"></i>Teacher:<span>{{ $kursus->teacher_name ?? '-' }}</span>

@@ -37,6 +37,7 @@ class Kursus extends Model
 
     protected $casts = [
         'benefits' => 'array',
+        'hour_duration' => 'int'
     ];
 
     public function sluggable(): array
