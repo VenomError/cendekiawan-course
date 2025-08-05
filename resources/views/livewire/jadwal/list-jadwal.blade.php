@@ -3,11 +3,17 @@
         <div class="card-header">
             <div class="card-title d-flex w-100 justify-content-between">
                 <h4 class="text-capitalize">List Jadwal</h4>
-                <a class="btn btn-primary" href="{{ route('dashboard.jadwal.add') }}">Add Jadwal</a>
+                <a
+                    class="btn btn-primary"
+                    href="{{ route('dashboard.jadwal.add') }}"
+                >Add Jadwal</a>
             </div>
         </div>
         <div class="card-body">
-            <x-table :order="[[3, 'desc']]" id="datatable-list-jadwal">
+            <x-table
+                :order="[[3, 'desc']]"
+                id="datatable-list-jadwal"
+            >
                 <x-slot:head>
                     <tr>
                         <th>Kursus</th>
@@ -26,7 +32,7 @@
                             $status = $jadwal->status;
                             $total = $jadwal->quota;
                             $registered = $jadwal->pendaftars()->count();
-                            $percent =  $total > 0 ? round(($registered / $total) * 100) : 0;
+                            $percent = $total > 0 ? round(($registered / $total) * 100) : 0;
 
                             if ($percent < 50) {
                                 $progressColor = 'success';
@@ -41,9 +47,12 @@
                             <td class="text-center">{{ $jadwal->kursus?->name }}</td>
 
                             <td class="text-center">
-                                <div class="progress  " style="height: 20px;">
+                                <div
+                                    class="progress"
+                                    style="height: 20px;"
+                                >
                                     <div
-                                        class="progress-bar bg-{{ $progressColor }}  "
+                                        class="progress-bar bg-{{ $progressColor }}"
                                         role="progressbar"
                                         style="width: {{ $percent }}%;"
                                         aria-valuenow="{{ $percent }}"
