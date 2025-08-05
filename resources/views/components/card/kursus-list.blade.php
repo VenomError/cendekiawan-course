@@ -4,7 +4,8 @@
     'duration',
     'image',
     'slug',
-    'thumbnail'
+    'thumbnail',
+    'benefits'
 ])
 <div class="col-xl-4 col-md-6 wow fadeInUp animated" data-wow-delay="100ms"
     style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
@@ -20,7 +21,11 @@
         <div class="course-two__content">
             <div class="course-two__time">{{ $duration }} Hours</div>
             <h3 class="course-two__title" style="height: 70px">
-                <a href="{{ route('landing.kursus.detail' , ['slug' => $slug]) }}">{{ $name }}</a>
+                <a href="{{ route('landing.kursus.detail' , ['slug' => $slug]) }}" class="mb-2">{{ $name }}</a>
+                <br />
+                @foreach ($benefits as $benefit )
+                    <span class="badge bg-success" >{{ $benefit }}</span>
+                @endforeach
             </h3>
             <div class="course-two__bottom">
                 <div class="course-two__author">

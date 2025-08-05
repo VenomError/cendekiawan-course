@@ -22,6 +22,7 @@
                         :price="$kursus->price"
                         :slug="$kursus->slug"
                         :thumbnail="$kursus->thumbnail"
+                        :benefits="$kursus->benefits"
                     />
                 @endforeach
             </div>
