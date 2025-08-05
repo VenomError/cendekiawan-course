@@ -11,11 +11,13 @@ class KursusDetail extends Component
 
     public $kursus;
     public $lastSchedule;
+    public $location;
 
     public function mount($slug)
     {
         $this->kursus       = Kursus::where("slug", $slug)->firstOrFail();
         $this->lastSchedule = $this->kursus->jadwals()->latest("end_datetime")->value('end_datetime');
+        $this->location =  $this->kursus->jadwals()->latest("location")->value('location');
     }
 
     public function render()

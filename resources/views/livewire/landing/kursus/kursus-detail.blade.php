@@ -50,6 +50,11 @@
                                     Duration:
                                     <span>{{ convertHoursToDaysAndHours($kursus->hour_duration) }}</span>
                                 </li>
+                                  <li>
+                                    <i class="icon-history"></i>
+                                    Duration:
+                                    <span>{{ convertHoursToDaysAndHours($location) }}</span>
+                                </li>
                                 <li><i
                                         class="icon-reading"></i>Teacher:<span>{{ $kursus->teacher_name ?? '-' }}</span>
                                 </li>
@@ -66,7 +71,7 @@
                                 @foreach ($kursus->benefits as $item)
                                     <li>
                                         @if ($loop->first)
-                                        Benefit 
+                                        Benefit
                                         @endif
                                         <span>{{ $item }}</span>
                                     </li>
